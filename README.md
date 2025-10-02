@@ -80,8 +80,8 @@ This workshop demonstrates how to build a fault-tolerant serverless application 
 
 1. **Clone this repository**
    ```bash
-   git clone https://github.com/your-repo/serverless-failover-workshop.git
-   cd serverless-failover-workshop
+   git clone https://github.com/quywork62/Workshop-Serverless-Failover-DynamoDB-Lambda-API-Gateway-Route-53.git
+   cd Workshop-Serverless-Failover-DynamoDB-Lambda-API-Gateway-Route-53
    ```
 
 2. **Follow the workshop guide**
@@ -112,6 +112,8 @@ content/
 ├── 3-create-admin-user-and-group/      # IAM roles configuration
 ├── 4-verify-new-account/               # Lambda functions deployment
 ├── 5-setup-api-gateway/                # API Gateway configuration
+│   ├── 5.1-create-api-primary-region/  # Primary region API
+│   └── 5.2-create-api-secondary-region/ # Secondary region API
 ├── 6-setup-dns-route53-failover/       # DNS and failover setup
 │   ├── 6.1-setup-dns-delegation/       # DNS delegation
 │   ├── 6.2-acm-ssl-certificates/       # SSL certificates
