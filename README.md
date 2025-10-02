@@ -16,7 +16,7 @@ This workshop demonstrates how to build a fault-tolerant serverless application 
 - **Amazon S3** for static website hosting
 - **Multi-Region deployment** across Singapore and Tokyo
 
-![Serverless Failover Architecture](/images/1/0001.png)
+![Serverless Failover Architecture](static/images/1/0001.png)
 
 ## 📚 Workshop Content
 
