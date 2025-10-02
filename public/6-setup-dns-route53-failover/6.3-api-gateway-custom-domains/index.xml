@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create Custom domains for API Gateway (one per region) on Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
+    <link>//localhost:1313/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/</link>
+    <description>Recent content in Create Custom domains for API Gateway (one per region) on Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="//localhost:1313/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.148.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo Admin Group và Admin User :: Tạo mới tài khoản AWS</title>
+    <title>Tạo IAM Role cho Lambda Functions :: Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
 
     
-    <link href="/css/nucleus.css?1704686316" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704686316" rel="stylesheet">
-    <link href="/css/hybrid.css?1704686316" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704686316" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704686316" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704686316" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704686316" rel="stylesheet">
-    <link href="/css/theme.css?1704686316" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704686316" rel="stylesheet">
+    <link href="/css/nucleus.css?1759408387" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759408387" rel="stylesheet">
+    <link href="/css/hybrid.css?1759408387" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759408387" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759408387" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759408387" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759408387" rel="stylesheet">
+    <link href="/css/theme.css?1759408387" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759408387" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704686316" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759408387" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704686316"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759408387"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704686316"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704686316"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759408387"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759408387"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704686316"></script>
+<script type="text/javascript" src="/js/search.js?1759408387"></script>
 
     
   </div>
@@ -82,39 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-create-new-aws-account/" title="Tạo mới tài khoản AWS" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/" title="Bước chuẩn bị" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-create-new-aws-account/">
-           <b> 1. </b> Tạo mới tài khoản AWS
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/" title="MFA cho Tài khoản AWS" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/">
-           <b> 2. </b> MFA cho Tài khoản AWS
+           <b> 1. </b> Bước chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
           
@@ -139,13 +113,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Thiết bị MFA ảo" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.1-find-account-id/" title="Đăng kí tên miền tại TENTEN.VN" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
-           <b> 2.1 </b> Thiết bị MFA ảo
+      <a href="/vi/1-create-new-aws-account/1.1-find-account-id/">
+           <b> 1.1 </b> Đăng kí tên miền tại TENTEN.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -167,13 +141,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/" title="Khóa bảo mật U2F" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.2-update-account/" title="Hosting trên DATAONLINE.VN" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/">
-           <b> 2.2 </b> Khóa bảo mật U2F
+      <a href="/vi/1-create-new-aws-account/1.2-update-account/">
+           <b> 1.2 </b> Hosting trên DATAONLINE.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +169,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Thiết bị MFA cứng" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.3-aws-account-alias/" title="Sử dụng Cloudflare để quản lý tên miền" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/">
-           <b> 2.3 </b> Thiết bị MFA cứng
+      <a href="/vi/1-create-new-aws-account/1.3-aws-account-alias/">
+           <b> 1.3 </b> Sử dụng Cloudflare để quản lý tên miền
           
             <i class="fas fa-check read-icon"></i>
           
@@ -230,13 +204,79 @@
  
   
     
-    <li data-nav-id="/vi/3-create-admin-user-and-group/" title="Tạo Admin Group và Admin User" class="dd-item 
-        parent
+    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/" title="Tạo bảng DynamoDB ở Region chính" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-mfa-setup-for-aws-user-root/">
+           <b> 2. </b> Tạo bảng DynamoDB ở Region chính
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Kích hoạt Global Tables và thêm Region phụ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
+           <b> 2.1 </b> Kích hoạt Global Tables và thêm Region phụ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-admin-user-and-group/" title="Tạo IAM Role cho Lambda Functions" class="dd-item 
+        
         active
         
         ">
       <a href="/vi/3-create-admin-user-and-group/">
-           <b> 3. </b> Tạo Admin Group và Admin User
+           <b> 3. </b> Tạo IAM Role cho Lambda Functions
           
             <i class="fas fa-check read-icon"></i>
           
@@ -256,13 +296,335 @@
  
   
     
-    <li data-nav-id="/vi/4-verify-new-account/" title="Hỗ trợ Xác thực Tài khoản" class="dd-item 
+    <li data-nav-id="/vi/4-verify-new-account/" title="Tạo Lambda Functions ở cả hai Region" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-verify-new-account/">
-           <b> 4. </b> Hỗ trợ Xác thực Tài khoản
+           <b> 4. </b> Tạo Lambda Functions ở cả hai Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/" title="Thiết lập API Gateway ở cả hai Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/">
+           <b> 5. </b> Thiết lập API Gateway ở cả hai Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/5.1-create-api-primary-region/" title="Tạo API Gateway ở Region chính" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/5.1-create-api-primary-region/">
+           <b> 5.1 </b> Tạo API Gateway ở Region chính
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/5.2-create-api-secondary-region/" title="Nhân bản API Gateway sang Region phụ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/5.2-create-api-secondary-region/">
+           <b> 5.2 </b> Nhân bản API Gateway sang Region phụ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/" title="Thiết lập DNS Route 53 và cấu hình Failover cho API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/">
+           <b> 6. </b> Thiết lập DNS Route 53 và cấu hình Failover cho API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.1-setup-dns-delegation/" title="Quyết định DNS cho api.turtleclouds.id.vn" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.1-setup-dns-delegation/">
+           <b> 6.1 </b> Quyết định DNS cho api.turtleclouds.id.vn
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/" title="Làm ACM DNS validation cho cả 2 region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">
+           <b> 6.2 </b> Làm ACM DNS validation cho cả 2 region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/" title="Tạo Custom domain cho API Gateway (mỗi region một cái)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/">
+           <b> 6.3 </b> Tạo Custom domain cho API Gateway (mỗi region một cái)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.4-route53-health-check-failover/" title="Route 53 Health check &#43; Failover record (trong zone api.turtleclouds.id.vn)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.4-route53-health-check-failover/">
+           <b> 6.4 </b> Route 53 Health check &#43; Failover record (trong zone api.turtleclouds.id.vn)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-create-frontend-website/" title="Create the Frontend Website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-create-frontend-website/">
+           <b> 7. </b> Create the Frontend Website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/8-test-failover-delete-primary-api/" title="Kiểm thử cơ chế chuyển đổi dự phòng bằng cách xóa API ở primary (Singapore)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/8-test-failover-delete-primary-api/">
+           <b> 8. </b> Kiểm thử cơ chế chuyển đổi dự phòng bằng cách xóa API ở primary (Singapore)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/9-clean-up-resources/" title="Xóa tài nguyên (Clean Up)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/9-clean-up-resources/">
+           <b> 9. </b> Xóa tài nguyên (Clean Up)
           
             <i class="fas fa-check read-icon"></i>
           
@@ -313,7 +675,7 @@
                   
                     
                     
-                      <option id="en" value="/3-create-admin-user-and-group/">English</option>
+                      <option id="en" value="//localhost:1313/3-create-admin-user-and-group/">English</option>
                     
                   
               
@@ -327,7 +689,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/3-create-admin-user-and-group/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/3-create-admin-user-and-group/" selected>Tiếng Việt</option>
                     
                   
               
@@ -365,7 +727,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>26-11-2023</font></i>
+        <i><font color=orange>1-10-2025</font></i>
     </left>
     <left>
         <br>
@@ -373,7 +735,8 @@
             <b> Team </b> <br>
            
             <i>
-                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a><br>
+                <a href="https://www.linkedin.com/in/quy-hoang-773a45303"  style="color:orange">Hoàng Quy</a>
         </i>
         </left>
 
@@ -413,7 +776,7 @@
             
           
           
-            <a href='/vi/'>Thiết lập Tài Khoản AWS</a> > Tạo Admin Group và Admin User
+            <a href='/vi/'>Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53</a> > Tạo IAM Role cho Lambda Functions
           
         
           
@@ -426,23 +789,14 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#tạo-admin-group">Tạo Admin Group</a></li>
-    <li><a href="#tạo-admin-user">Tạo Admin User</a></li>
-  </ul>
-
-  <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#nội-dung">Nội dung</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#tạo-iam-role-cho-lambda-functions">Tạo IAM Role cho Lambda Functions</a>
       <ul>
-        <li><a href="#tạo-khóa-truy-cập-access-key-cho-tài-khoản-root-user-trên-aws">Tạo khóa truy cập (access key) cho tài khoản root user trên AWS</a></li>
-        <li><a href="#xóa-một-khóa-truy-cập-cho-người-dùng-gốc-trên-aws">Xóa một khóa truy cập cho người dùng gốc trên AWS</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -462,7 +816,7 @@
           
             <h1>
               
-              Tạo Admin Group và Admin User
+              Tạo IAM Role cho Lambda Functions
             </h1>
           
 
@@ -470,192 +824,96 @@
 
 
 
-	<h2 id="tạo-admin-group">Tạo Admin Group</h2>
-<ol>
-<li>
-<p><strong>Đăng nhập vào Bảng điều khiển</strong> ở trang <a href="https://aws.amazon.com/">AWS Web Service page</a></p>
-</li>
-<li>
-<p>Nhấn vào tên tài khoản ở góc trên bên phải và chọn <strong>My Security Credentials</strong></p>
-<p><img src="/images/01/0001.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-<blockquote>
-<p><strong>Lưu ý:</strong> Trong trường hợp không thấy menu <strong>My Security Credentials</strong>, bạn có thể click vào biểu tượng tìm kiếm và điền <strong>IAM</strong>. Sau đó click vào dịch vụ IAM để truy cập vào giao diện quản lý dịch vụ IAM.</p>
-</blockquote>
-<p><img src="/images/01/0002.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Ở thanh bên trái, chọn <strong>User Groups</strong> sau đó chọn <strong>Create Group</strong></p>
-<p><img src="/images/01/0003.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Dưới mục <strong>Name the group</strong>, nhập tên Group (Ví dụ: <em>AdminGroup</em>) và cuộn chuột xuống dưới</p>
-<p><img src="/images/01/0004.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Ở phần <strong>Attach permissions policies</strong>, gõ <strong>AdministratorAccesss</strong> vào thanh tìm kiếm và nhấn chọn nó. Cuối cùng, chọn <strong>Create Group</strong>.</p>
-<p><img src="/images/01/0005.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Hoàn thành tạo admin group.</p>
-<p><img src="/images/01/0006.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-</ol>
-<h2 id="tạo-admin-user">Tạo Admin User</h2>
-<ol>
-<li>
-<p>Ở thanh bên trái, chọn <strong>Users</strong> sau đó chọn <strong>Add User</strong></p>
-<p><img src="/images/02/0001.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Nhập tên User (Ví dụ: <em>AdminUser</em>).</p>
-<ul>
-<li>Click <strong>AWS Management Console access</strong>.</li>
-<li>Click <strong>Programmatic Access</strong>.</li>
-<li>Click <strong>Custom password</strong> rồi gõ một password tùy ý của bạn (lưu ý: bạn phải ghi nhớ mật khẩu này cho những lần đăng nhập trong tương lai).</li>
-<li>Bỏ chọn mục <strong>User must create a new password&hellip;</strong>.</li>
-<li>Click <strong>Next:Permissions</strong>.</li>
-</ul>
-<p><img src="/images/02/0002.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-<blockquote>
-<p><strong>Lưu ý:</strong> Bằng cách chọn <strong>AWS Management Console access</strong>, bạn vừa cho phép IAM User được truy cập vào AWS thông qua bảng điều khiển AWS trên web. Việc bỏ mục <strong>User must create a new password&hellip;</strong> cho phép người dùng khi lần đầu đăng nhập vào IAM User đó không cần phải tạo mật khẩu mới.</p>
-</blockquote>
-</li>
-<li>
-<p>Click tab <strong>Add user to group</strong> và click <strong>AdminGroup</strong> mà chúng ta tạo trước đó.</p>
-<p><img src="/images/02/0003.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Click <strong>Next:Tags</strong></p>
-<ul>
-<li>Tags (thẻ) là một tùy chọn không bắt buộc để tổ chức, theo dõi, hoặc điều khiển truy cập của user, thế nên bạn có thể thêm tags hoặc không.</li>
-</ul>
-</li>
-<li>
-<p>Click <strong>Next:Review</strong>.</p>
-<p><img src="/images/02/0004.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Kiểm tra thông tin và chọn <strong>Create user</strong></p>
-<p><img src="/images/02/0005.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Hoàn thành tạo user. Có thể download.csv để lưu trữ Access key.</p>
-<p><img src="/images/02/0006.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Tạo admin user thành công.</p>
-<p><img src="/images/02/0007.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Kiểm tra thông tin chi tiết user.</p>
-<p><img src="/images/02/0008.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-<blockquote>
-<p><strong>Lưu ý:</strong> Sau khi tạo user, bạn sẽ thấy hiện lên hộp thoại download thông tin access key và secret key. Đây là thông tin dùng để thực hiện <strong>Programmatic access</strong> tới các tài nguyên của AWS thông qua <strong>AWS CLI</strong> và <strong>AWS SDK</strong>. Tạm thời chúng ta sẽ chưa sử dụng tới.</p>
-</blockquote>
-</li>
-</ol>
-<h1 id="đăng-nhập-vào-adminuser">Đăng nhập vào AdminUser</h1>
-<ol>
-<li>
-<p>Trở về dịch vụ IAM, và chọn <strong>Users</strong> ở thanh bên trái.</p>
-</li>
-<li>
-<p>Nhấn vào tên của IAM User mà bạn vừa chọn.</p>
-</li>
-<li>
-<p>Trong mục <strong>Summary</strong>, chọn tab <strong>Security credentials</strong>. Nhìn vào dòng <strong>Summary: Console sign-in link</strong> và copy đường link bên cạnh nó. Đây là đường link bạn dùng để đăng nhập vào IAM User.</p>
-<p><img src="/images/03/0001.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Mở một tab ẩn danh của trình duyệt bạn đang sử dụng và paste đường link ấy vào thanh tìm kiếm.</p>
-<p><img src="/images/03/0002.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-<blockquote>
-<p><strong>Lưu ý:</strong> Việc đăng nhập bằng tab ẩn danh cho phép bạn đăng nhập vào AWS bằng IAM User mà không cần phải log out khỏi root user trong tab chính.</p>
-</blockquote>
-</li>
-<li>
-<p>Nhập đúng tên IAM User và password mà bạn đã nhập ở phần <strong>tạo IAM User</strong> ở trên. Nhấn <strong>sign in</strong>.</p>
-<p><img src="/images/03/0003.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Chúc mừng, bạn đã truy cập thành công vào tài khoản của bạn dưới danh nghĩa của một IAM User <strong>AdminUser</strong>.</p>
-<p><img src="/images/03/0004.png?featherlight=false&amp;width=90pc" alt="AWS IAM"></p>
-</li>
-<li>
-<p>Bước tiếp theo, chúng ta sẽ chuyển sang sử dụng IAM Role để nâng cao tính bảo mật hơn cho account của bạn nhé.</p>
-</li>
-</ol>
-<h4 id="tham-khảo">Tham khảo</h4>
-<h1 id="iam-user-và-đăng-nhập-trong-aws">IAM User và Đăng Nhập Trong AWS</h1>
-<p>Một IAM user là một định danh được tạo trong một tài khoản AWS, có quyền được tương tác với các tài nguyên AWS. Người dùng IAM đăng nhập bằng cách sử dụng ID tài khoản hoặc tên bí danh, tên người dùng của họ và mật khẩu. Tên người dùng IAM được cấu hình bởi quản trị viên của bạn. Tên người dùng IAM có thể là tên thân thiện như &ldquo;Zhang&rdquo;, hoặc là địa chỉ email như &ldquo;<a href="mailto:zhang@example.com">zhang@example.com</a>&rdquo;. Tên người dùng IAM không thể chứa khoảng trắng, nhưng có thể chứa chữ cái in hoa và thường, số, và các ký tự + = , . @ _ -.</p>
-<p><strong>Mẹo</strong>
-Nếu người dùng IAM của bạn đã bật xác thực đa yếu tố (MFA), bạn phải có quyền truy cập vào thiết bị xác thực. Để biết thêm chi tiết, xem <a href="link_to_MFA_documentation">Sử dụng thiết bị MFA với trang đăng nhập IAM của bạn</a>.</p>
-<p><strong>Để đăng nhập với tư cách người dùng IAM</strong></p>
-<ol>
-<li>
-<p>Mở Bảng điều khiển Quản lý AWS tại <a href="https://console.aws.amazon.com/">https://console.aws.amazon.com/</a>.</p>
-</li>
-<li>
-<p>Trang đăng nhập chính hiển thị. Chọn &ldquo;IAM user&rdquo;, nhập ID tài khoản (12 chữ số) hoặc bí danh và chọn &ldquo;Next&rdquo;.</p>
-</li>
-</ol>
-<p><strong>Ghi chú</strong>
-Bạn có thể không cần phải nhập ID tài khoản hoặc bí danh nếu bạn đã đăng nhập trước đó với tài khoản IAM bằng trình duyệt hiện tại hoặc nếu bạn đang sử dụng URL đăng nhập tài khoản của bạn.</p>
-<ol start="3">
-<li>
-<p>Nhập tên người dùng IAM và mật khẩu của bạn, sau đó chọn &ldquo;Sign in&rdquo;.</p>
-</li>
-<li>
-<p>Nếu MFA được bật cho người dùng IAM của bạn, sau đó bạn sẽ được xác thực sử dụng nó.</p>
-</li>
-</ol>
-<p>Sau khi xác thực, Bảng điều khiển Quản lý AWS sẽ mở trang chủ Bảng điều khiển.</p>
-<h3 id="tạo-khóa-truy-cập-access-key-cho-tài-khoản-root-user-trên-aws">Tạo khóa truy cập (access key) cho tài khoản root user trên AWS</h3>
-<h4 id="quyền-tối-thiểu-cần-thiết">Quyền tối thiểu cần thiết</h4>
-<p>Để thực hiện các bước sau, bạn cần có ít nhất các quyền IAM (Identity and Access Management) sau đây:</p>
+	<p>Trong AWS, <strong>IAM Role</strong> giống như một “tập quyền” (permission set) được định nghĩa sẵn. Role không gắn cố định cho một người dùng cụ thể, mà được các dịch vụ AWS hoặc ứng dụng tạm thời “mượn” để có quyền thực hiện hành động.</p>
+<p><strong>Ví dụ:</strong></p>
+<p><strong>AWS Lambda</strong> cần một Role để có quyền đọc/ghi dữ liệu vào <strong>DynamoDB</strong>.</p>
+<p>EC2 Instance có thể gán một Role để truy cập S3 mà không cần lưu Access Key/Secret Key trong máy.</p>
+<p>Điểm khác biệt so với IAM User:</p>
+<p>User: gắn liền với một cá nhân hoặc ứng dụng, có username &amp; password hoặc access key.</p>
+<p>Role: không có thông tin đăng nhập riêng, chỉ cấp quyền tạm thời cho dịch vụ hoặc user/ứng dụng assume (nhận) nó.</p>
+<p>👉 Trong bài lab này, bạn sẽ tạo một Role tên <strong>LambdaDynamoDBRole</strong> để cho phép Lambda Functions:</p>
 <ul>
 <li>
-<p>Bạn phải đăng nhập với tư cách là tài khoản root user của AWS, điều này không yêu cầu bất kỳ quyền IAM bổ sung nào khác. Bạn không thể thực hiện các bước này với tư cách là người dùng IAM hoặc vai trò (role).</p>
+<p>Truy cập DynamoDB.</p>
 </li>
 <li>
-<p>Sử dụng địa chỉ email và mật khẩu của tài khoản AWS để đăng nhập vào Bảng điều khiển quản lý AWS (AWS Management Console) với tư cách là tài khoản root user.</p>
-</li>
-<li>
-<p>Ở góc trên bên phải của bảng điều khiển, chọn tên hoặc số tài khoản của bạn, sau đó chọn Security Credentials (Thông tin xác thực bảo mật).</p>
-</li>
-<li>
-<p>Ở phần Access keys (Khóa truy cập), chọn Create access key (Tạo khóa truy cập). Nếu tùy chọn này không khả dụng, điều đó có nghĩa bạn đã có số lượng tối đa các khóa truy cập. Bạn phải xóa một trong các khóa truy cập hiện có trước khi tạo khóa mới. Để biết thêm thông tin, xem IAM Object Quotas trong Hướng dẫn Người dùng IAM.</p>
-</li>
-<li>
-<p>Trên trang Alternatives to root user access keys (Các phương án thay thế cho khóa truy cập tài khoản root user), xem xét các khuyến nghị về bảo mật. Để tiếp tục, chọn vào ô kiểm và sau đó chọn Create access key (Tạo khóa truy cập).</p>
-</li>
-<li>
-<p>Trên trang Retrieve access key (Trang Lấy lại khóa truy cập), Access key ID của bạn sẽ được hiển thị.</p>
-</li>
-<li>
-<p>Dưới mục Secret access key (Khóa truy cập bí mật), chọn Show (Hiển thị) và sau đó sao chép Access key ID và Secret key từ cửa sổ trình duyệt của bạn, sau đó dán chúng vào một nơi an toàn. Tùy chọn khác, bạn có thể chọn Download .csv file (Tải xuống tệp .csv) để tải xuống một tệp có tên là rootkey.csv chứa Access key ID và Secret key. Lưu tệp ở một nơi an toàn.</p>
-</li>
-<li>
-<p>Chọn Done (Hoàn thành). Khi bạn không còn cần khóa truy cập nữa, chúng tôi khuyến nghị bạn xóa nó hoặc ít nhất là xem xét vô hiệu hóa nó để không ai có thể lạm dụng.</p>
+<p>Ghi log vào CloudWatch.</p>
 </li>
 </ul>
-<blockquote>
-<p>Lưu ý: Các bước này chỉ áp dụng cho tài khoản root user trên AWS. Đối với các người dùng IAM hoặc vai trò (role), cách tạo và quản lý khóa truy cập có thể khác nhau.</p>
-</blockquote>
-<h3 id="xóa-một-khóa-truy-cập-cho-người-dùng-gốc-trên-aws">Xóa một khóa truy cập cho người dùng gốc trên AWS</h3>
-<h4 id="quyền-tối-thiểu">Quyền tối thiểu</h4>
-<p>Để thực hiện các bước sau, bạn phải có ít nhất các quyền IAM (Quản lý Quyền và Danh sách quyền) sau đây:</p>
+<h3 id="nội-dung">Nội dung</h3>
+<ol>
+<li><a href="/vi/3-create-admin-user-and-group/#1-m%e1%bb%9f-iam-console">Mở IAM Console</a></li>
+<li><a href="/vi/3-create-admin-user-and-group/#2-t%e1%ba%a1o-role-m%e1%bb%9bi-cho-lambda">Tạo Role mới cho Lambda</a></li>
+<li><a href="/vi/3-create-admin-user-and-group/#3-g%c3%a1n-quy%e1%bb%81n-cho-role">Gán quyền cho Role</a></li>
+<li><a href="/vi/3-create-admin-user-and-group/#4-%c4%91%e1%ba%b7t-t%c3%aan-v%c3%a0-t%e1%ba%a1o-role">Đặt tên và tạo Role</a></li>
+<li><a href="/vi/3-create-admin-user-and-group/#5-l%c6%b0u-l%e1%ba%a1i-arn-c%e1%bb%a7a-role">Lưu lại ARN của Role</a></li>
+</ol>
+<h2 id="tạo-iam-role-cho-lambda-functions">Tạo IAM Role cho Lambda Functions</h2>
+<h4 id="1-mở-iam-console">1. Mở IAM Console</h4>
 <ul>
-<li>Bạn phải đăng nhập dưới tư cách người dùng gốc của tài khoản AWS, điều này không yêu cầu bất kỳ quyền AWS Identity and Access Management (IAM) bổ sung nào. Bạn không thể thực hiện các bước này dưới tư cách người dùng IAM hoặc vai trò.</li>
-<li>Sử dụng địa chỉ email và mật khẩu của tài khoản AWS để đăng nhập vào Bảng điều khiển Quản lý AWS dưới tư cách người dùng gốc của bạn.</li>
-<li>Ở góc trên bên phải của bảng điều khiển, chọn tên hoặc số tài khoản của bạn, sau đó chọn <strong>Security Credentials</strong> (Chứng chỉ Bảo mật).</li>
-<li>Trong phần <strong>Access keys</strong> (Khóa truy cập), chọn khóa truy cập mà bạn muốn xóa, sau đó, ở mục <strong>Actions</strong> (Thao tác), chọn <strong>Delete</strong> (Xóa).</li>
+<li>
+<p>Đăng nhập <strong>AWS Management Console</strong>.</p>
+</li>
+<li>
+<p>Tìm và chọn dịch vụ <strong>IAM</strong>.</p>
+</li>
 </ul>
-<blockquote>
-<p><strong>Lưu ý</strong>
-Theo cách khác, bạn có thể <strong>Deactivate</strong> (Ngưng hoạt động) một khóa truy cập thay vì xóa nó vĩnh viễn. Điều này giúp bạn có thể tiếp tục sử dụng nó trong tương lai mà không cần thay đổi cả ID khóa lẫn khóa bí mật. Trong khi khóa bị vô hiệu hóa, mọi yêu cầu sử dụng nó trong các yêu cầu tới AWS API sẽ thất bại với lỗi &ldquo;access denied&rdquo; (truy cập bị từ chối).</p>
-<p>Trên hộp thoại <strong>Delete <!-- raw HTML omitted --></strong> (Xóa &lt;ID khóa truy cập&gt;), chọn <strong>Deactivate</strong> (Ngưng hoạt động), nhập ID khóa truy cập để xác nhận bạn muốn xóa nó, sau đó chọn <strong>Delete</strong> (Xóa).</p>
-</blockquote>
+<p><img src="/images/3/1.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="2-tạo-role-mới-cho-lambda">2. Tạo Role mới cho Lambda</h4>
+<ul>
+<li>
+<p>Chọn <strong>Roles</strong> → <strong>Create role</strong>.</p>
+</li>
+<li>
+<p>Ở mục <strong>Trusted entity type</strong>, chọn <strong>AWS Service</strong>.</p>
+</li>
+<li>
+<p>Chọn dịch vụ <strong>Lambda</strong>, sau đó bấm <strong>Next</strong>.
+<img src="/images/3/2.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+</li>
+</ul>
+<p><img src="/images/3/3.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/3/4.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/3/5.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="3-gán-quyền-cho-role">3. Gán quyền cho Role</h4>
+<ul>
+<li>
+<p>Tìm và chọn 2 policy:</p>
+</li>
+<li>
+<p><code>AmazonDynamoDBFullAccess</code> → cho phép Lambda thao tác với DynamoDB.</p>
+</li>
+<li>
+<p><code>AWSLambdaBasicExecutionRole</code> → cho phép Lambda ghi log lên CloudWatch.
+<img src="/images/3/6.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/3/7.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+</li>
+</ul>
+<h4 id="nhấn-next">Nhấn <strong>Next</strong></h4>
+<p><img src="/images/3/8.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="4-đặt-tên-và-tạo-role">4. Đặt tên và tạo Role</h4>
+<ul>
+<li>
+<p>Nhập Role name: <code>LambdaDynamoDBRole</code>.</p>
+</li>
+<li>
+<p>Nhấn <strong>Create role</strong> để hoàn tất.</p>
+</li>
+</ul>
+<p><img src="/images/3/9.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/3/10.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="bạn-đã-tạo-role-thành-công">Bạn đã tạo <strong>Role</strong> thành công</h4>
+<p><img src="/images/3/11.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="5-lưu-lại-arn-của-role">5. Lưu lại ARN của Role</h4>
+<ul>
+<li>
+<p>Sau khi tạo, mở chi tiết Role.</p>
+</li>
+<li>
+<p>Copy <strong>Role ARN</strong> (sẽ cần khi gán cho Lambda function sau này).
+<img src="/images/3/12.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+</li>
+</ul>
 
 
 
@@ -704,8 +962,178 @@ Theo cách khác, bạn có thể <strong>Deactivate</strong> (Ngưng hoạt đ�
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -773,6 +1201,22 @@ Theo cách khác, bạn có thể <strong>Deactivate</strong> (Ngưng hoạt đ�
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -780,7 +1224,6 @@ Theo cách khác, bạn có thể <strong>Deactivate</strong> (Ngưng hoạt đ�
             
             
                 
-                    
                     
                 
                 
@@ -798,8 +1241,21 @@ Theo cách khác, bạn có thể <strong>Deactivate</strong> (Ngưng hoạt đ�
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -821,10 +1277,10 @@ Theo cách khác, bạn có thể <strong>Deactivate</strong> (Ngưng hoạt đ�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Thiết bị MFA cứng"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Kích hoạt Global Tables và thêm Region phụ"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/4-verify-new-account/" title="Hỗ trợ Xác thực Tài khoản" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/4-verify-new-account/" title="Tạo Lambda Functions ở cả hai Region" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -834,19 +1290,19 @@ Theo cách khác, bạn có thể <strong>Deactivate</strong> (Ngưng hoạt đ�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704686316"></script>
-    <script src="/js/jquery.sticky.js?1704686316"></script>
-    <script src="/js/featherlight.min.js?1704686316"></script>
-    <script src="/js/highlight.pack.js?1704686316"></script>
+    <script src="/js/clipboard.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759408387"></script>
+    <script src="/js/jquery.sticky.js?1759408387"></script>
+    <script src="/js/featherlight.min.js?1759408387"></script>
+    <script src="/js/highlight.pack.js?1759408387"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704686316"></script>
-    <script src="/js/learn.js?1704686316"></script>
-    <script src="/js/hugo-learn.js?1704686316"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759408387"></script>
+    <script src="/js/learn.js?1759408387"></script>
+    <script src="/js/hugo-learn.js?1759408387"></script>
 
-    <link href="/mermaid/mermaid.css?1704686316" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704686316"></script>
+    <link href="/mermaid/mermaid.css?1759408387" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759408387"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

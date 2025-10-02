@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.1">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Create API Gateway in Primary Region :: Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
+
+    
+    <link href="/css/nucleus.css?1759408387" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759408387" rel="stylesheet">
+    <link href="/css/hybrid.css?1759408387" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759408387" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759408387" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759408387" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759408387" rel="stylesheet">
+    <link href="/css/theme.css?1759408387" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759408387" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1759408387" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1759408387"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/5-setup-api-gateway/5.1-create-api-primary-region/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1759408387"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759408387"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1759408387"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-create-new-aws-account/" title="Preparation Steps" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-create-new-aws-account/">
+           <b> 1. </b> Preparation Steps
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-create-new-aws-account/1.1-find-account-id/" title="Domain Registration at TENTEN.VN" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-create-new-aws-account/1.1-find-account-id/">
+           <b> 1.1 </b> Domain Registration at TENTEN.VN
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-create-new-aws-account/1.2-update-account/" title="Hosting on DATAONLINE.VN" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-create-new-aws-account/1.2-update-account/">
+           <b> 1.2 </b> Hosting on DATAONLINE.VN
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-create-new-aws-account/1.3-aws-account-alias/" title="Using Cloudflare for Domain Management" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-create-new-aws-account/1.3-aws-account-alias/">
+           <b> 1.3 </b> Using Cloudflare for Domain Management
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/" title="Create DynamoDB Table in Primary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-mfa-setup-for-aws-user-root/">
+           <b> 2. </b> Create DynamoDB Table in Primary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Enable Global Tables and Add Secondary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
+           <b> 2.1 </b> Enable Global Tables and Add Secondary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-create-admin-user-and-group/" title="Create IAM Role for Lambda Functions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-create-admin-user-and-group/">
+           <b> 3. </b> Create IAM Role for Lambda Functions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-verify-new-account/" title="Create Lambda Functions in Both Regions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-verify-new-account/">
+           <b> 4. </b> Create Lambda Functions in Both Regions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/" title="Set Up API Gateway (Both Regions)" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/">
+           <b> 5. </b> Set Up API Gateway (Both Regions)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/5.1-create-api-primary-region/" title="Create API Gateway in Primary Region" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/5-setup-api-gateway/5.1-create-api-primary-region/">
+           <b> 5.1 </b> Create API Gateway in Primary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/5.2-create-api-secondary-region/" title="Replicate API Gateway to Secondary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/5.2-create-api-secondary-region/">
+           <b> 5.2 </b> Replicate API Gateway to Secondary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/" title="Set Up DNS Route 53 and Configure Failover for API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/">
+           <b> 6. </b> Set Up DNS Route 53 and Configure Failover for API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/" title="DNS Delegation for api.turtleclouds.id.vn" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/">
+           <b> 6.1 </b> DNS Delegation for api.turtleclouds.id.vn
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/" title="ACM DNS validation for both regions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">
+           <b> 6.2 </b> ACM DNS validation for both regions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/" title="Create Custom domains for API Gateway (one per region)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/">
+           <b> 6.3 </b> Create Custom domains for API Gateway (one per region)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.4-route53-health-check-failover/" title="Route 53 Health check &#43; Failover record (in zone api.turtleclouds.id.vn)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.4-route53-health-check-failover/">
+           <b> 6.4 </b> Route 53 Health check &#43; Failover record (in zone api.turtleclouds.id.vn)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-create-frontend-website/" title="Create the Frontend Website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-create-frontend-website/">
+           <b> 7. </b> Create the Frontend Website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-test-failover-delete-primary-api/" title="Test failover mechanism by deleting primary API (Singapore)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8-test-failover-delete-primary-api/">
+           <b> 8. </b> Test failover mechanism by deleting primary API (Singapore)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/9-clean-up-resources/" title="Clean Up Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9-clean-up-resources/">
+           <b> 9. </b> Clean Up Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/5-setup-api-gateway/5.1-create-api-primary-region/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/5-setup-api-gateway/5.1-create-api-primary-region/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830891&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>1-10-2025</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a><br>
+                <a href="https://www.linkedin.com/in/quy-hoang-773a45303"  style="color:orange">Hoàng Quy</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53</a> > <a href='/5-setup-api-gateway/'>Set Up API Gateway (Both Regions)</a> > Create API Gateway in Primary Region
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#create-api-gateway-in-primary-region-singapore">Create API Gateway in Primary Region (Singapore)</a></li>
+        <li><a href="#content">Content</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Create API Gateway in Primary Region
+            </h1>
+          
+
+        
+
+
+
+	<h3 id="create-api-gateway-in-primary-region-singapore">Create API Gateway in Primary Region (Singapore)</h3>
+<p>In this step, we will create API Gateway in the Primary Region (Singapore ap-southeast-1) to provide REST API endpoints for frontend applications.</p>
+<h3 id="content">Content</h3>
+<ol>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#1-access-api-gateway-console">Access API Gateway Console</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#2-create-new-rest-api">Create New REST API</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#3-configure-basic-information">Configure Basic Information</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#4-create-resource-read">Create Resource read</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#5-create-resource-write">Create Resource write</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#6-create-get-method-for-readfunction">Create GET Method (for ReadFunction)</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#7-create-post-method-for-writefunction">Create POST Method (for WriteFunction)</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#8-enable-cors-for-resource">Enable CORS for Resource</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#9-deploy-api">Deploy API</a></li>
+<li><a href="/5-setup-api-gateway/5.1-create-api-primary-region/#10-save-the-invoke-url">Save the Invoke URL</a></li>
+</ol>
+<h4 id="1-access-api-gateway-console">1. Access API Gateway Console</h4>
+<ul>
+<li>Sign in to <strong>AWS Management Console</strong></li>
+<li>Ensure you are in <strong>Singapore (ap-southeast-1)</strong> Region</li>
+<li>Find and select <strong>API Gateway</strong> service</li>
+</ul>
+<p><img src="/images/5/1.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="2-create-new-rest-api">2. Create New REST API</h4>
+<ul>
+<li>Choose <strong>Create API</strong></li>
+<li>In the <strong>REST API</strong> section, choose <strong>Build</strong> (not Private REST API)</li>
+</ul>
+<p><img src="/images/5/2.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/3.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="3-configure-basic-information">3. Configure Basic Information</h4>
+<ul>
+<li><strong>Choose the protocol</strong>: REST</li>
+<li><strong>Create new API</strong>: New API</li>
+<li><strong>API name</strong>: <code>HighAvailabilityAPI</code></li>
+<li><strong>Description</strong>: <code>Primary Region API for Serverless Failover</code></li>
+<li><strong>Endpoint Type</strong>: <strong>Regional</strong></li>
+<li>Choose <strong>Create API</strong></li>
+</ul>
+<p><img src="/images/5/4.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="4-create-resource-read">4. Create Resource <code>read</code></h4>
+<ul>
+<li>In the newly created API, choose <strong>Actions</strong> → <strong>Create Resource</strong></li>
+<li><strong>Resource Name</strong>: <code>read</code></li>
+<li><strong>Resource Path</strong>: <code>/read</code></li>
+<li><strong>Enable API Gateway CORS</strong>: ✅ (enable)</li>
+<li>Choose <strong>Create Resource</strong></li>
+</ul>
+<p><img src="/images/5/5.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/6.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="5-create-resource-write">5. Create Resource <code>write</code></h4>
+<ul>
+<li>In the API, choose <strong>Actions</strong> → <strong>Create Resource</strong></li>
+<li><strong>Resource Name</strong>: <code>write</code></li>
+<li><strong>Resource Path</strong>: <code>/write</code></li>
+<li><strong>Enable API Gateway CORS</strong>: ✅ (enable)</li>
+<li>Choose <strong>Create Resource</strong></li>
+</ul>
+<p><img src="/images/5/7.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/8.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="6-create-get-method-for-readfunction">6. Create GET Method (for ReadFunction)</h4>
+<ul>
+<li>Select the <code>/read</code> resource just created</li>
+<li>Choose <strong>Actions</strong> → <strong>Create Method</strong></li>
+<li>From dropdown, select <strong>GET</strong> and click ✅</li>
+</ul>
+<p><img src="/images/5/9.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<p><strong>Configure Integration:</strong></p>
+<ul>
+<li><strong>Integration type</strong>: Lambda Function</li>
+<li><strong>Use Lambda Proxy integration</strong>: ✅ (enable)</li>
+<li><strong>Lambda Region</strong>: ap-southeast-1</li>
+<li><strong>Lambda Function</strong>: <code>ReadFunction</code></li>
+<li>Choose <strong>Save</strong></li>
+</ul>
+<p><img src="/images/5/10.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/11.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/12.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="7-create-post-method-for-writefunction">7. Create POST Method (for WriteFunction)</h4>
+<ul>
+<li>Select the <code>/write</code> resource</li>
+<li>Choose <strong>Actions</strong> → <strong>Create Method</strong></li>
+<li>From dropdown, select <strong>POST</strong> and click ✅</li>
+</ul>
+<p><img src="/images/5/13.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<p><strong>Configure Integration:</strong></p>
+<ul>
+<li><strong>Integration type</strong>: Lambda Function</li>
+<li><strong>Use Lambda Proxy integration</strong>: ✅ (enable)</li>
+<li><strong>Lambda Region</strong>: ap-southeast-1</li>
+<li><strong>Lambda Function</strong>: <code>WriteFunction</code></li>
+<li>Choose <strong>Save</strong></li>
+</ul>
+<p><img src="/images/5/14.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/15.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="8-enable-cors-for-resource">8. Enable CORS for Resource</h4>
+<ul>
+<li>Select the root resource <code>/</code></li>
+<li>Choose <strong>Actions</strong> → <strong>Enable CORS</strong></li>
+</ul>
+<p><img src="/images/5/21.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<p><strong>Configure CORS:</strong></p>
+<ul>
+<li><strong>Access-Control-Allow-Origin</strong>: <code>*</code></li>
+<li><strong>Access-Control-Allow-Headers</strong>:
+<pre tabindex="0"><code>Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+</code></pre></li>
+</ul>
+<p><img src="/images/5/22.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/23.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="9-deploy-api">9. Deploy API</h4>
+<ul>
+<li>Choose <strong>Actions</strong> → <strong>Deploy API</strong></li>
+<li><strong>Deployment stage</strong>: [New Stage]</li>
+<li><strong>Stage name</strong>: <code>prod</code></li>
+<li><strong>Stage description</strong>: <code>Production stage for Primary Region</code></li>
+<li><strong>Deployment description</strong>: <code>Initial deployment</code></li>
+<li>Choose <strong>Deploy</strong></li>
+</ul>
+<p><img src="/images/5/16.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/17.png?featherlight=false&amp;width=90pc" alt="API Gateway">
+<img src="/images/5/18.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<h4 id="10-save-the-invoke-url">10. Save the Invoke URL</h4>
+<p>After successful deployment, in the <strong>Stages</strong> → <strong>prod</strong> tab, you will see the <strong>Invoke URL</strong>:</p>
+<pre tabindex="0"><code>https://xxxxxxxxxx.execute-api.ap-southeast-1.amazonaws.com/prod
+</code></pre><p><img src="/images/5/19.png?featherlight=false&amp;width=90pc" alt="API Gateway"></p>
+<p><strong>Save this URL</strong> - we will need it to:</p>
+<ul>
+<li>Test API functionality</li>
+<li>Configure Route 53 health checks</li>
+<li>Integrate with frontend application</li>
+</ul>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/5-setup-api-gateway/" title="Set Up API Gateway (Both Regions)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/5-setup-api-gateway/5.2-create-api-secondary-region/" title="Replicate API Gateway to Secondary Region" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759408387"></script>
+    <script src="/js/jquery.sticky.js?1759408387"></script>
+    <script src="/js/featherlight.min.js?1759408387"></script>
+    <script src="/js/highlight.pack.js?1759408387"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759408387"></script>
+    <script src="/js/learn.js?1759408387"></script>
+    <script src="/js/hugo-learn.js?1759408387"></script>
+
+    <link href="/mermaid/mermaid.css?1759408387" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759408387"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

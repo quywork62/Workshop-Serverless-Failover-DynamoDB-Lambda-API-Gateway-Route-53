@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.148.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>MFA cho Tài khoản AWS :: Tạo mới tài khoản AWS</title>
+    <title>Tạo bảng DynamoDB ở Region chính :: Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
 
     
-    <link href="/css/nucleus.css?1704686316" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704686316" rel="stylesheet">
-    <link href="/css/hybrid.css?1704686316" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704686316" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704686316" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704686316" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704686316" rel="stylesheet">
-    <link href="/css/theme.css?1704686316" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704686316" rel="stylesheet">
+    <link href="/css/nucleus.css?1759408387" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759408387" rel="stylesheet">
+    <link href="/css/hybrid.css?1759408387" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759408387" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759408387" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759408387" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759408387" rel="stylesheet">
+    <link href="/css/theme.css?1759408387" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759408387" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704686316" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759408387" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704686316"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759408387"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704686316"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704686316"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759408387"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759408387"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704686316"></script>
+<script type="text/javascript" src="/js/search.js?1759408387"></script>
 
     
   </div>
@@ -82,39 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-create-new-aws-account/" title="Tạo mới tài khoản AWS" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/" title="Bước chuẩn bị" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-create-new-aws-account/">
-           <b> 1. </b> Tạo mới tài khoản AWS
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/" title="MFA cho Tài khoản AWS" class="dd-item 
-        parent
-        active
-        
-        ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/">
-           <b> 2. </b> MFA cho Tài khoản AWS
+           <b> 1. </b> Bước chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
           
@@ -139,13 +113,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Thiết bị MFA ảo" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.1-find-account-id/" title="Đăng kí tên miền tại TENTEN.VN" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
-           <b> 2.1 </b> Thiết bị MFA ảo
+      <a href="/vi/1-create-new-aws-account/1.1-find-account-id/">
+           <b> 1.1 </b> Đăng kí tên miền tại TENTEN.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -167,13 +141,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/" title="Khóa bảo mật U2F" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.2-update-account/" title="Hosting trên DATAONLINE.VN" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/">
-           <b> 2.2 </b> Khóa bảo mật U2F
+      <a href="/vi/1-create-new-aws-account/1.2-update-account/">
+           <b> 1.2 </b> Hosting trên DATAONLINE.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +169,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Thiết bị MFA cứng" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.3-aws-account-alias/" title="Sử dụng Cloudflare để quản lý tên miền" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/">
-           <b> 2.3 </b> Thiết bị MFA cứng
+      <a href="/vi/1-create-new-aws-account/1.3-aws-account-alias/">
+           <b> 1.3 </b> Sử dụng Cloudflare để quản lý tên miền
           
             <i class="fas fa-check read-icon"></i>
           
@@ -230,13 +204,79 @@
  
   
     
-    <li data-nav-id="/vi/3-create-admin-user-and-group/" title="Tạo Admin Group và Admin User" class="dd-item 
+    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/" title="Tạo bảng DynamoDB ở Region chính" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/vi/2-mfa-setup-for-aws-user-root/">
+           <b> 2. </b> Tạo bảng DynamoDB ở Region chính
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Kích hoạt Global Tables và thêm Region phụ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
+           <b> 2.1 </b> Kích hoạt Global Tables và thêm Region phụ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-admin-user-and-group/" title="Tạo IAM Role cho Lambda Functions" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-create-admin-user-and-group/">
-           <b> 3. </b> Tạo Admin Group và Admin User
+           <b> 3. </b> Tạo IAM Role cho Lambda Functions
           
             <i class="fas fa-check read-icon"></i>
           
@@ -256,13 +296,335 @@
  
   
     
-    <li data-nav-id="/vi/4-verify-new-account/" title="Hỗ trợ Xác thực Tài khoản" class="dd-item 
+    <li data-nav-id="/vi/4-verify-new-account/" title="Tạo Lambda Functions ở cả hai Region" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-verify-new-account/">
-           <b> 4. </b> Hỗ trợ Xác thực Tài khoản
+           <b> 4. </b> Tạo Lambda Functions ở cả hai Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/" title="Thiết lập API Gateway ở cả hai Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/">
+           <b> 5. </b> Thiết lập API Gateway ở cả hai Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/5.1-create-api-primary-region/" title="Tạo API Gateway ở Region chính" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/5.1-create-api-primary-region/">
+           <b> 5.1 </b> Tạo API Gateway ở Region chính
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/5.2-create-api-secondary-region/" title="Nhân bản API Gateway sang Region phụ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/5.2-create-api-secondary-region/">
+           <b> 5.2 </b> Nhân bản API Gateway sang Region phụ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/" title="Thiết lập DNS Route 53 và cấu hình Failover cho API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/">
+           <b> 6. </b> Thiết lập DNS Route 53 và cấu hình Failover cho API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.1-setup-dns-delegation/" title="Quyết định DNS cho api.turtleclouds.id.vn" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.1-setup-dns-delegation/">
+           <b> 6.1 </b> Quyết định DNS cho api.turtleclouds.id.vn
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/" title="Làm ACM DNS validation cho cả 2 region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">
+           <b> 6.2 </b> Làm ACM DNS validation cho cả 2 region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/" title="Tạo Custom domain cho API Gateway (mỗi region một cái)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/">
+           <b> 6.3 </b> Tạo Custom domain cho API Gateway (mỗi region một cái)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.4-route53-health-check-failover/" title="Route 53 Health check &#43; Failover record (trong zone api.turtleclouds.id.vn)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.4-route53-health-check-failover/">
+           <b> 6.4 </b> Route 53 Health check &#43; Failover record (trong zone api.turtleclouds.id.vn)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-create-frontend-website/" title="Create the Frontend Website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-create-frontend-website/">
+           <b> 7. </b> Create the Frontend Website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/8-test-failover-delete-primary-api/" title="Kiểm thử cơ chế chuyển đổi dự phòng bằng cách xóa API ở primary (Singapore)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/8-test-failover-delete-primary-api/">
+           <b> 8. </b> Kiểm thử cơ chế chuyển đổi dự phòng bằng cách xóa API ở primary (Singapore)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/9-clean-up-resources/" title="Xóa tài nguyên (Clean Up)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/9-clean-up-resources/">
+           <b> 9. </b> Xóa tài nguyên (Clean Up)
           
             <i class="fas fa-check read-icon"></i>
           
@@ -313,7 +675,7 @@
                   
                     
                     
-                      <option id="en" value="/2-mfa-setup-for-aws-user-root/">English</option>
+                      <option id="en" value="//localhost:1313/2-mfa-setup-for-aws-user-root/">English</option>
                     
                   
               
@@ -327,7 +689,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/2-mfa-setup-for-aws-user-root/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/2-mfa-setup-for-aws-user-root/" selected>Tiếng Việt</option>
                     
                   
               
@@ -365,7 +727,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>26-11-2023</font></i>
+        <i><font color=orange>1-10-2025</font></i>
     </left>
     <left>
         <br>
@@ -373,7 +735,8 @@
             <b> Team </b> <br>
            
             <i>
-                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a><br>
+                <a href="https://www.linkedin.com/in/quy-hoang-773a45303"  style="color:orange">Hoàng Quy</a>
         </i>
         </left>
 
@@ -413,7 +776,7 @@
             
           
           
-            <a href='/vi/'>Thiết lập Tài Khoản AWS</a> > MFA cho Tài khoản AWS
+            <a href='/vi/'>Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53</a> > Tạo bảng DynamoDB ở Region chính
           
         
           
@@ -428,7 +791,8 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#giới-thiệu-dynamodb">Giới thiệu DynamoDB</a></li>
+        <li><a href="#bước-1-tạo-bảng-dynamodb-ở-region-chính">Bước 1. Tạo bảng DynamoDB ở Region chính</a></li>
       </ul>
     </li>
   </ul>
@@ -448,7 +812,7 @@
           
             <h1>
               
-              MFA cho Tài khoản AWS
+              Tạo bảng DynamoDB ở Region chính
             </h1>
           
 
@@ -456,35 +820,29 @@
 
 
 
-	<h4 id="hướng-dẫn-thiết-lập-multi-factor-authentication-mfa">Hướng dẫn Thiết lập Multi-Factor Authentication (MFA)</h4>
-<p>Trong quy trình bảo mật, việc sử dụng Multi-Factor Authentication (MFA) rất quan trọng. Trong bước này, bạn sẽ sử dụng ba loại thiết bị MFA khác nhau để tăng cường tính bảo mật.</p>
-<h4 id="thiết-bị-mfa-ảo-trên-smartphone">Thiết bị MFA ảo trên smartphone</h4>
-<p>Một cách phổ biến để thực hiện MFA là sử dụng các ứng dụng MFA trên điện thoại thông minh. Có ba ứng dụng phổ biến mà bạn có thể sử dụng:</p>
+	<h3 id="giới-thiệu-dynamodb">Giới thiệu DynamoDB</h3>
+<p>Amazon DynamoDB là dịch vụ cơ sở dữ liệu NoSQL được quản lý hoàn toàn (fully managed NoSQL database), cung cấp khả năng lưu trữ dữ liệu dạng key-value và document với độ trễ chỉ vài mili-giây ở mọi quy mô. Ưu điểm lớn của DynamoDB là tự động mở rộng (auto scaling), không cần quản lý máy chủ, và tích hợp sẵn tính năng bảo mật, backup, caching.</p>
+<p>Trong bài lab này, DynamoDB đóng vai trò là nền tảng lưu trữ chính của ứng dụng, đảm bảo dữ liệu được nhân bản tự động giữa nhiều Region thông qua Global Tables, giúp ứng dụng duy trì tính sẵn sàng và nhất quán ngay cả khi một Region gặp sự cố.</p>
+<h4 id="nội-dung"><strong>Nội dung</strong></h4>
 <ol>
-<li>Microsoft Authenticator</li>
-<li>Google Authenticator</li>
-<li>Okta Verify</li>
+<li><a href="/vi/2-mfa-setup-for-aws-user-root/#step-1-t%e1%ba%a1o-b%e1%ba%a3ng-dynamodb-%e1%bb%9f-region-ch%c3%adnh">Tạo bảng DynamoDB ở Region chính</a></li>
+<li><a href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">Kích hoạt Global Tables và thêm Region phụ</a></li>
 </ol>
-<p>Để cài đặt MFA với các ứng dụng này, bạn cần thực hiện các bước sau:</p>
-<ol>
-<li>Tải và cài đặt ứng dụng từ cửa hàng ứng dụng chính thức của hãng phát triển.</li>
-<li>Theo hướng dẫn trong ứng dụng, thêm tài khoản bảo mật bằng cách quét mã QR hoặc nhập mã cung cấp.</li>
-</ol>
-<h4 id="khóa-bảo-mật-u2f-cứng">Khóa bảo mật U2F cứng</h4>
-<p>Khóa bảo mật U2F (Universal 2nd Factor) cung cấp một lớp bảo mật bổ sung thông qua cổng USB. Để cài đặt khóa bảo mật U2F, bạn cần thực hiện các bước sau:</p>
-<ol>
-<li>Mua khóa bảo mật U2F tương thích với hệ thống của bạn.</li>
-<li>Kết nối khóa vào cổng USB của máy tính.</li>
-<li>Theo hướng dẫn của hãng sản xuất, thực hiện quá trình đăng ký và cài đặt.</li>
-</ol>
-<h4 id="thiết-bị-mfa-phần-cứng-khác">Thiết bị MFA phần cứng khác</h4>
-<p>Ngoài các tùy chọn trên, còn có các thiết bị MFA phần cứng khác như khóa bảo mật Gemalto. Để sử dụng các thiết bị này, bạn cần tuân thủ hướng dẫn cụ thể từ nhà sản xuất.</p>
-<h4 id="liên-kết-nhanh-đến-các-phần-hướng-dẫn-chi-tiết">Liên kết nhanh đến các phần hướng dẫn chi tiết</h4>
-<ol>
-<li><a href="#1-virtual-mfa-device">Thiết lập với thiết bị MFA ảo</a></li>
-<li><a href="#2-u2f-security-key">Thiết lập với Khóa Bảo mật U2F</a></li>
-<li><a href="#3-other-hardware-mfa-device">Thiết lập với thiết bị MFA phần cứng khác</a></li>
-</ol>
+<h3 id="bước-1-tạo-bảng-dynamodb-ở-region-chính">Bước 1. Tạo bảng DynamoDB ở Region chính</h3>
+<h4 id="1-đăng-nhập-aws-management-console">1. Đăng nhập AWS Management Console</h4>
+<h4 id="2-vào-dịch-vụ-dynamodb">2. Vào dịch vụ <a href="https://ap-southeast-1.console.aws.amazon.com/dynamodbv2/home?region=ap-southeast-1#service">DynamoDB</a></h4>
+<p><img src="/images/2/2.png?featherlight=false&amp;width=90pc" alt="DynamoDB"></p>
+<h4 id="3-tạo-bảng-mới-trong-region-chính-ví-dụ-ap-southeast-1">3. Tạo bảng mới trong Region chính (ví dụ: ap-southeast-1)</h4>
+<p>Table name: <code>HighAvailabilityTable</code></p>
+<p>Partition key: <code>ItemId</code> (String)</p>
+<p><img src="/images/2/1.png?featherlight=false&amp;width=90pc" alt="DynamoDB">
+<img src="/images/2/3.png?featherlight=false&amp;width=90pc" alt="DynamoDB"></p>
+<h4 id="4-ta-sẽ-chọn-default-settings-ở-bảng-table-settings">4. Ta sẽ chọn &ldquo;Default Settings&rdquo; ở bảng Table Settings</h4>
+<p><img src="/images/2/4.png?featherlight=false&amp;width=90pc" alt="DynamoDB"></p>
+<h4 id="5-cuối-cùng-chọn-create-table">5. Cuối cùng chọn &ldquo;Create table&rdquo;</h4>
+<p><img src="/images/2/5.png?featherlight=false&amp;width=90pc" alt="DynamoDB"></p>
+<h4 id="đợi-khoảng-2---3-phút-để-khởi-tạo-tài-nguyên-kiểm-tra-status-chuyển-sang-active-là-thành-công">Đợi khoảng 2 - 3 phút để khởi tạo tài nguyên. Kiểm tra Status chuyển sang &ldquo;Active&rdquo; là thành công</h4>
+<p><img src="/images/2/6.png?featherlight=false&amp;width=90pc" alt="DynamoDB"></p>
 
 
 
@@ -533,23 +891,6 @@
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -559,9 +900,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -605,6 +943,224 @@
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -650,10 +1206,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/1-create-new-aws-account/" title="Tạo mới tài khoản AWS"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/1-create-new-aws-account/1.3-aws-account-alias/" title="Sử dụng Cloudflare để quản lý tên miền"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Thiết bị MFA ảo" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Kích hoạt Global Tables và thêm Region phụ" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -663,19 +1219,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704686316"></script>
-    <script src="/js/jquery.sticky.js?1704686316"></script>
-    <script src="/js/featherlight.min.js?1704686316"></script>
-    <script src="/js/highlight.pack.js?1704686316"></script>
+    <script src="/js/clipboard.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759408387"></script>
+    <script src="/js/jquery.sticky.js?1759408387"></script>
+    <script src="/js/featherlight.min.js?1759408387"></script>
+    <script src="/js/highlight.pack.js?1759408387"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704686316"></script>
-    <script src="/js/learn.js?1704686316"></script>
-    <script src="/js/hugo-learn.js?1704686316"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759408387"></script>
+    <script src="/js/learn.js?1759408387"></script>
+    <script src="/js/hugo-learn.js?1759408387"></script>
 
-    <link href="/mermaid/mermaid.css?1704686316" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704686316"></script>
+    <link href="/mermaid/mermaid.css?1759408387" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759408387"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

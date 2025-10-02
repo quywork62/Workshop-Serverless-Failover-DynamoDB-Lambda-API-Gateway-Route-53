@@ -1,61 +1,47 @@
 ---
-title : "MFA for AWS Accounts"
-date : "`r Sys.Date()`"
+title : "Create DynamoDB Table in Primary Region"
+date : "2025-01-27"
 weight : 2
 chapter : false
 pre : " <b> 2. </b> "
 ---
 
-#### Multi-Factor Authentication (MFA) Setup
+### Introduction to DynamoDB
 
-During the authentication process, you will need to utilize three different MFA devices to ensure the security of your account.
+Amazon DynamoDB is a fully managed NoSQL database service that provides key-value and document data storage with single-digit millisecond latency at any scale. The major advantages of DynamoDB are auto scaling, no server management required, and built-in security, backup, and caching features.
 
-1. **Virtual MFA Devices (Smartphone Apps)**: Install the following apps on your smartphone and set them up for MFA:
-   - Microsoft Authenticator
-   - Google Authenticator
-   - Okta Verify
+In this lab, DynamoDB serves as the primary data storage foundation for the application, ensuring data is automatically replicated between multiple Regions through Global Tables, helping the application maintain availability and consistency even when a Region experiences an outage.
 
-2. **Hard U2F Security Key**: Obtain a hard U2F security key to enhance your account's security.
+#### **Content**
 
-3. **Other Hardware MFA Devices (e.g., Gemalto Security Keys)**: Consider using additional hardware MFA devices for added protection.
+1. [Create DynamoDB Table in Primary Region](#step-1-create-dynamodb-table-in-primary-region)
+2. [Enable Global Tables and Add Secondary Region](1-virtual-mfa-device/)
 
-## Content
+### Step 1: Create DynamoDB Table in Primary Region
 
-- [Content](#content)
-- [1. Setup with Virtual MFA Device](#1-setup-with-virtual-mfa-device)
-- [2. Setup with U2F Security Key](#2-setup-with-u2f-security-key)
-- [3. Setup with Other Hardware MFA Device](#3-setup-with-other-hardware-mfa-device)
+#### 1. Sign in to the AWS Management Console
 
----
+#### 2. Navigate to the [DynamoDB](https://ap-southeast-1.console.aws.amazon.com/dynamodbv2/home?region=ap-southeast-1#service) service
 
-## 1. Setup with Virtual MFA Device
+![DynamoDB](/images/2/2.png?featherlight=false&width=90pc)
 
-To set up your virtual MFA device using apps on your smartphone, follow these steps:
+#### 3. Create a new table in the primary region (e.g., ap-southeast-1)
 
-- Step 1: Install the Microsoft Authenticator, Google Authenticator, and Okta Verify apps on your smartphone.
-- Step 2: Open the app and follow the on-screen instructions to add your account.
-- Step 3: Use the app-generated codes during the MFA authentication process.
+Table name: ```HighAvailabilityTable```
 
----
+Partition key: ```ItemId``` (String)
 
-## 2. Setup with U2F Security Key
+![DynamoDB](/images/2/1.png?featherlight=false&width=90pc)
+![DynamoDB](/images/2/3.png?featherlight=false&width=90pc)
 
-Setting up your U2F security key involves the following steps:
+#### 4. Select "Default Settings" in the Table Settings section
 
-- Step 1: Obtain a compatible U2F security key.
-- Step 2: Connect the key to your device's USB port.
-- Step 3: During authentication, insert the key and follow the prompts to complete the process.
+![DynamoDB](/images/2/4.png?featherlight=false&width=90pc)
 
----
+#### 5. Finally, choose "Create table"
 
-## 3. Setup with Other Hardware MFA Device
+![DynamoDB](/images/2/5.png?featherlight=false&width=90pc)
 
-Consider using hardware MFA devices like Gemalto security keys for an extra layer of security:
+#### Wait approximately 2-3 minutes for resource initialization. Check that the Status changes to "Active" for success
 
-- Step 1: Acquire a Gemalto security key or a similar hardware device.
-- Step 2: Connect and set up the device as per the manufacturer's instructions.
-- Step 3: Integrate the device into your MFA authentication workflow.
-
----
-
-Remember to keep your MFA devices secure and follow best practices to ensure the safety of your account.
+![DynamoDB](/images/2/6.png?featherlight=false&width=90pc)

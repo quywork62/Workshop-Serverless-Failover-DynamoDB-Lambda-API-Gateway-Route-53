@@ -1,74 +1,33 @@
 ---
-title : "View AWS account identifiers"
-date : "`r Sys.Date()`"
+title : "Domain Registration at TENTEN.VN"
+date : "2025-01-27"
 weight : 1
 chapter : false
 pre : " <b> 1.1 </b> "
 ---
 
-#### View AWS account identifiers
+First, you need to register a domain on the tenten.vn website. After accessing the official website, search for the domain you desire, for example **turtleclouds.id.vn**. If this domain is still available, you can proceed with registration by filling in complete personal or business information, then making an online payment. Immediately after completion, the system will send you domain management information via email, allowing you full control over DNS records as well as Nameserver settings.
 
-#### Finding your account ID as the root user
+### Content
 
-You can find the AWS account ID using either the **AWS Management Console** or the **AWS Command Line Interface** (AWS CLI). In the console, the location of the account ID depends on whether you're signed in as the root user or an IAM user. The account ID remains the same whether you're signed in as the root user or an IAM user.
+1. [Access TENTEN.VN homepage](#1-go-to-tentenvn-homepage-or-watch-the-tutorial-video-via-this-link)
+2. [Check domain registration status](#2-after-successful-domain-registration-you-can-check-following-these-steps)
+3. [Verify domain status](#verify-domain-status)
 
-#### Minimum Permissions
+#### 1. Go to [tenten.vn](https://tenten.vn/vi) homepage or watch the tutorial video via this link
 
-To perform the following steps, you must have at least the following IAM permissions:
+#### [Register domain and free hosting from tenten.vn](https://www.youtube.com/watch?v=nyTJv13Z8xk)
 
-- When you sign in as the root user, you don't need any IAM permissions.
-- In the navigation bar on the upper right, choose your account name or number and then choose **Security credentials**.
+#### 2. After successful domain registration, you can check following these steps
 
-**Tip:** If you don't see the **Security credentials** option, you might be signed in as a federated user with an IAM role, instead of as an IAM user. In this case, look for the entry **Account** and the account ID number next to it.
+![Create Account](/images/1.1/1.png?featherlight=false&width=90pc)
 
-Under the **Account details** section, the account number appears next to **AWS account ID**.
+#### Click following the image instructions
 
-#### Finding Your AWS Account ID as an IAM User
+![Create Account](/images/1.1/2.png?featherlight=false&width=90pc)
 
-#### Minimum Permissions
+#### You will see your registered domain and the active status is successful
 
-To perform the following steps, you must have at least the following IAM permission:
+![Create Account](/images/1.1/3.png?featherlight=false&width=90pc)
 
-- `aws-portal:ViewAccount`
-
-1. In the navigation bar on the upper right, choose your user name and then choose **Security credentials**.
-
-   > **Tip:** If you don't see the **Security credentials** option, you might be signed in as a federated user with an IAM role, instead of as an IAM user. In this case, look for the entry **Account** and the account ID number next to it.
-
-2. At the top of the page, under **Account details**, the account number appears next to **AWS account ID**.
-
-
-#### Find the canonical user ID for your AWS account
-
-You can find the canonical user ID for your AWS account using the AWS Management Console or the AWS CLI. The canonical user ID for an AWS account is specific to that account. You can retrieve the canonical user ID for your AWS account as the root user, a federated user, or an IAM user.
-
-#### Find the canonical ID as the root user or IAM user
-
-To find the canonical user ID for your account when signed in to the console as the root user or an IAM user:
-
-**Minimum permissions:**
-
-To perform the following steps, you must have at least the following IAM permissions:
-
-- When you run the command as the root user, you don't need any IAM permissions.
-- When you sign in as an IAM user, then you must have:
-  - `aws-portal:ViewAccount`
-
-1. Sign in to the AWS Management Console as the root user or an IAM user.
-2. In the navigation bar on the upper right, choose your account name or number, and then choose "Security credentials".
-
-   > **Tip:** If you don't see the "Security credentials" option, you might be signed in as a federated user with an IAM role, instead of as an IAM user. In this case, look for the entry "Account" and the account ID number next to it.
-
-3. Under the "Account details" section, the canonical user ID appears next to "Canonical user ID". You can use your canonical user ID to configure Amazon S3 access control lists (ACLs).
-
-#### Find the canonical ID as a federated user with an IAM role
-
-To find the canonical ID for your account when signed in to the console as a federated user with an IAM role
-
-#### Minimum Permissions
-You must have permission to list and view an Amazon S3 bucket.
-
-1. Sign in to the AWS Management Console as a federated user with an IAM role.
-2. In the Amazon S3 console, choose a bucket name to view details about a bucket.
-3. Choose the Permissions tab.
-4. In the Access control list section, under Bucket owner, the canonical ID for your AWS account appears.
+**Note:** The process from domain registration to receiving successful confirmation email can take up to 1 day.

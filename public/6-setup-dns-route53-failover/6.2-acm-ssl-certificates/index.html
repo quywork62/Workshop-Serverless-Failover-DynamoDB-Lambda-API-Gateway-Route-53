@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.1">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>ACM DNS validation for both regions :: Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
+
+    
+    <link href="/css/nucleus.css?1759408387" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759408387" rel="stylesheet">
+    <link href="/css/hybrid.css?1759408387" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759408387" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759408387" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759408387" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759408387" rel="stylesheet">
+    <link href="/css/theme.css?1759408387" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759408387" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1759408387" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1759408387"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1759408387"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759408387"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1759408387"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-create-new-aws-account/" title="Preparation Steps" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-create-new-aws-account/">
+           <b> 1. </b> Preparation Steps
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-create-new-aws-account/1.1-find-account-id/" title="Domain Registration at TENTEN.VN" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-create-new-aws-account/1.1-find-account-id/">
+           <b> 1.1 </b> Domain Registration at TENTEN.VN
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-create-new-aws-account/1.2-update-account/" title="Hosting on DATAONLINE.VN" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-create-new-aws-account/1.2-update-account/">
+           <b> 1.2 </b> Hosting on DATAONLINE.VN
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-create-new-aws-account/1.3-aws-account-alias/" title="Using Cloudflare for Domain Management" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-create-new-aws-account/1.3-aws-account-alias/">
+           <b> 1.3 </b> Using Cloudflare for Domain Management
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/" title="Create DynamoDB Table in Primary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-mfa-setup-for-aws-user-root/">
+           <b> 2. </b> Create DynamoDB Table in Primary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Enable Global Tables and Add Secondary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
+           <b> 2.1 </b> Enable Global Tables and Add Secondary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-create-admin-user-and-group/" title="Create IAM Role for Lambda Functions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-create-admin-user-and-group/">
+           <b> 3. </b> Create IAM Role for Lambda Functions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-verify-new-account/" title="Create Lambda Functions in Both Regions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-verify-new-account/">
+           <b> 4. </b> Create Lambda Functions in Both Regions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/" title="Set Up API Gateway (Both Regions)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/">
+           <b> 5. </b> Set Up API Gateway (Both Regions)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/5.1-create-api-primary-region/" title="Create API Gateway in Primary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/5.1-create-api-primary-region/">
+           <b> 5.1 </b> Create API Gateway in Primary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/5.2-create-api-secondary-region/" title="Replicate API Gateway to Secondary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/5.2-create-api-secondary-region/">
+           <b> 5.2 </b> Replicate API Gateway to Secondary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/" title="Set Up DNS Route 53 and Configure Failover for API Gateway" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/">
+           <b> 6. </b> Set Up DNS Route 53 and Configure Failover for API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/" title="DNS Delegation for api.turtleclouds.id.vn" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/">
+           <b> 6.1 </b> DNS Delegation for api.turtleclouds.id.vn
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/" title="ACM DNS validation for both regions" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">
+           <b> 6.2 </b> ACM DNS validation for both regions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/" title="Create Custom domains for API Gateway (one per region)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/">
+           <b> 6.3 </b> Create Custom domains for API Gateway (one per region)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.4-route53-health-check-failover/" title="Route 53 Health check &#43; Failover record (in zone api.turtleclouds.id.vn)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.4-route53-health-check-failover/">
+           <b> 6.4 </b> Route 53 Health check &#43; Failover record (in zone api.turtleclouds.id.vn)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-create-frontend-website/" title="Create the Frontend Website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-create-frontend-website/">
+           <b> 7. </b> Create the Frontend Website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-test-failover-delete-primary-api/" title="Test failover mechanism by deleting primary API (Singapore)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8-test-failover-delete-primary-api/">
+           <b> 8. </b> Test failover mechanism by deleting primary API (Singapore)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/9-clean-up-resources/" title="Clean Up Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9-clean-up-resources/">
+           <b> 9. </b> Clean Up Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830891&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>1-10-2025</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a><br>
+                <a href="https://www.linkedin.com/in/quy-hoang-773a45303"  style="color:orange">Hoàng Quy</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53</a> > <a href='/6-setup-dns-route53-failover/'>Set Up DNS Route 53 and Configure Failover for API Gateway</a> > ACM DNS validation for both regions
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#acm-dns-validation-for-both-regions">ACM DNS validation for both regions</a></li>
+        <li><a href="#why-ssl-certificates-are-needed-for-both-regions">Why SSL Certificates are Needed for Both Regions?</a></li>
+        <li><a href="#content">Content</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#preparation-for-next-step">Preparation for Next Step</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              ACM DNS validation for both regions
+            </h1>
+          
+
+        
+
+
+
+	<h3 id="acm-dns-validation-for-both-regions">ACM DNS validation for both regions</h3>
+<p>Since you&rsquo;re using Regional APIs in ap-southeast-1 (Singapore – primary) and ap-northeast-1 (Tokyo – secondary), you need 2 certificates, one in each corresponding region.</p>
+<h3 id="why-ssl-certificates-are-needed-for-both-regions">Why SSL Certificates are Needed for Both Regions?</h3>
+<ul>
+<li><strong>Regional Requirement</strong>: API Gateway Regional endpoints need certificates in the same Region</li>
+<li><strong>Custom Domain</strong>: To use custom domain instead of default AWS URLs</li>
+<li><strong>HTTPS Security</strong>: Ensure all API calls are encrypted</li>
+<li><strong>Failover Support</strong>: Both Regions need SSL for failover to work</li>
+</ul>
+<h3 id="content">Content</h3>
+<ol>
+<li><a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/#1-create-certificate-for-singapore-region">Create Certificate for Singapore Region</a></li>
+<li><a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/#2-dns-validation-for-singapore">DNS Validation for Singapore</a></li>
+<li><a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/#3-create-certificate-for-tokyo-region">Create Certificate for Tokyo Region</a></li>
+<li><a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/#4-dns-validation-for-tokyo">DNS Validation for Tokyo</a></li>
+<li><a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/#5-check-certificate-status">Check Certificate Status</a></li>
+</ol>
+<h4 id="1-create-certificate-for-singapore-region">1. Create Certificate for Singapore Region</h4>
+<ul>
+<li>Ensure you are in <strong>Singapore (ap-southeast-1)</strong> Region</li>
+<li>Access <strong>AWS Certificate Manager (ACM)</strong></li>
+<li>Choose <strong>Request a certificate</strong></li>
+</ul>
+<p><img src="/images/6.2/1.png?featherlight=false&amp;width=90pc" alt="ACM"></p>
+<p><strong>Configure Certificate:</strong></p>
+<ul>
+<li><strong>Certificate type</strong>: <strong>Request a public certificate</strong></li>
+<li>Choose <strong>Next</strong></li>
+</ul>
+<p><img src="/images/6.2/2.png?featherlight=false&amp;width=90pc" alt="ACM"></p>
+<p><strong>Domain names:</strong></p>
+<ul>
+<li><strong>Fully qualified domain name</strong>: <code>api.turtleclouds.id.vn</code></li>
+<li>If you need SAN (Subject Alternative Names): <code>www.api.turtleclouds.id.vn</code></li>
+<li><strong>Validation method</strong>: <strong>DNS validation</strong></li>
+<li><strong>Key algorithm</strong>: <strong>RSA 2048</strong></li>
+<li>Choose <strong>Request</strong></li>
+</ul>
+<p><img src="/images/6.2/3.png?featherlight=false&amp;width=90pc" alt="ACM">
+<img src="/images/6.2/4.png?featherlight=false&amp;width=90pc" alt="ACM">
+<img src="/images/6.2/5.png?featherlight=false&amp;width=90pc" alt="Route 53"></p>
+<p><img src="/images/6.2/6.png?featherlight=false&amp;width=90pc" alt="Route 53"></p>
+<h4 id="2-dns-validation-for-singapore">2. DNS Validation for Singapore</h4>
+<p>ACM will display validation information. You will see a CNAME record that needs to be created:</p>
+<p><strong>Example CNAME record:</strong></p>
+<ul>
+<li><strong>Name</strong>: <code>_4724b28c2f251eaf0f8e5de086a13395.api.turtleclouds.id.vn</code></li>
+<li><strong>Value</strong>: <code>_d527ab199f33beee1a7c9dedf48c932a.xlfgrmvvlj.acm-validations.aws</code></li>
+</ul>
+<p>👉 In <strong>ACM</strong> interface, choose <strong>Create records in Route 53</strong> to create automatically.
+<img src="/images/6.2/7.png?featherlight=false&amp;width=90pc" alt="ACM"></p>
+<ul>
+<li>Create DNS record in <strong>Route 53</strong></li>
+</ul>
+<p>When you click the button, ACM will open the DNS record creation interface in Route 53.</p>
+<p><strong>Domain</strong>: <code>api.turtleclouds.id.vn</code></p>
+<p><strong>Validation status</strong>: <strong>Pending validation</strong></p>
+<p>Choose <strong>Create records</strong> to confirm.
+<img src="/images/6.2/8.png?featherlight=false&amp;width=90pc" alt="ACM"></p>
+<ul>
+<li>Verify status</li>
+</ul>
+<p>After creation, return to the certificate details screen in ACM.</p>
+<p>Status will be <strong>Pending validation</strong>.</p>
+<p>After a few minutes, when DNS propagation is complete, ACM will automatically change to <strong>Issued</strong>.
+<img src="/images/6.2/9.png?featherlight=false&amp;width=90pc" alt="ACM">
+<img src="/images/6.2/10.png?featherlight=false&amp;width=90pc" alt="ACM"></p>
+
+<div class="notices info" ><p>Note: Since subdomain api.* has been delegated to Route 53, you create the CNAME record directly in Route 53 (zone: api.turtleclouds.id.vn), no need to work with Cloudflare.</p>
+</div>
+
+<h4 id="3-create-certificate-for-tokyo-region">3. Create Certificate for Tokyo Region</h4>
+<ul>
+<li>Switch to <strong>Tokyo (ap-northeast-1)</strong> Region</li>
+<li>Access <strong>AWS Certificate Manager (ACM)</strong></li>
+<li>Repeat the same steps as Singapore</li>
+</ul>
+<p><strong>Configure Certificate:</strong></p>
+<ul>
+<li><strong>Domain name</strong>: <code>api.turtleclouds.id.vn</code></li>
+<li><strong>Validation method</strong>: <strong>DNS validation</strong></li>
+<li><strong>Key algorithm</strong>: <strong>RSA 2048</strong></li>
+<li>Choose <strong>Request</strong></li>
+</ul>
+<h4 id="4-dns-validation-for-tokyo">4. DNS Validation for Tokyo</h4>
+<p>ACM Tokyo will provide a different CNAME record for validation:</p>
+<p><strong>Example CNAME record for Tokyo:</strong></p>
+<ul>
+<li><strong>Name</strong>: <code>_8956c39d4e362bfb2c9f7a180b24567e.api.turtleclouds.id.vn</code></li>
+<li><strong>Value</strong>: <code>_f638bc210e44ceef2d8d0f57f49c843b.ylfgrmvvlj.acm-validations.aws</code></li>
+</ul>
+<p>👉 In <strong>ACM</strong> interface, choose <strong>Create records in Route 53</strong> to create automatically.</p>
+<ul>
+<li>Create DNS record in <strong>Route 53</strong></li>
+</ul>
+<p>When you click the button, ACM will open the DNS record creation interface in Route 53.</p>
+<p><strong>Domain</strong>: <code>api.turtleclouds.id.vn</code></p>
+<p><strong>Validation status</strong>: <strong>Pending validation</strong></p>
+<p>Choose <strong>Create records</strong> to confirm.</p>
+<ul>
+<li>Verify status</li>
+</ul>
+<p>After creation, return to the certificate details screen in ACM.</p>
+<p>Status will be <strong>Pending validation</strong>.</p>
+<p>After a few minutes, when DNS propagation is complete, ACM will automatically change to <strong>Issued</strong>.</p>
+<p><img src="/images/6.2/11.png?featherlight=false&amp;width=90pc" alt="ACM"></p>
+
+<div class="notices info" ><p>Note: Since subdomain api.* has been delegated to Route 53, you create the CNAME record directly in Route 53 (zone: api.turtleclouds.id.vn), no need to work with Cloudflare.</p>
+</div>
+
+<h4 id="5-check-certificate-status">5. Check Certificate Status</h4>
+<p><strong>Check Singapore Certificate:</strong></p>
+<ul>
+<li>Return to ACM in <strong>Singapore</strong> Region</li>
+<li>Wait for status to change from <strong>Pending validation</strong> → <strong>Issued</strong> (usually 2-10 minutes)</li>
+</ul>
+<p><img src="/images/6.2/10.png?featherlight=false&amp;width=90pc" alt="ACM"></p>
+<p><strong>Check Tokyo Certificate:</strong></p>
+<ul>
+<li>Switch to ACM in <strong>Tokyo</strong> Region</li>
+<li>Wait for status to change from <strong>Pending validation</strong> → <strong>Issued</strong></li>
+</ul>
+<p><img src="/images/6.2/11.png?featherlight=false&amp;width=90pc" alt="ACM"></p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>If certificates are not issued after 15 minutes:</p>
+<ol>
+<li><strong>Check CNAME records</strong>: Ensure they are created correctly in Route 53</li>
+<li><strong>Check DNS propagation</strong>: Use <code>nslookup</code> to verify</li>
+<li><strong>Check TTL</strong>: Ensure TTL is not too high (recommended 300s)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nslookup -type<span style="color:#f92672">=</span>CNAME _4724b28c2f251eaf0f8e5de086a13395.api.turtleclouds.id.vn
+</span></span></code></pre></div><h3 id="results">Results</h3>
+<p>After completing this step:</p>
+<ul>
+<li>✅ <strong>SSL Certificate</strong> issued for Singapore Region</li>
+<li>✅ <strong>SSL Certificate</strong> issued for Tokyo Region</li>
+<li>✅ <strong>DNS Validation</strong> working correctly</li>
+<li>✅ <strong>CNAME Records</strong> created in Route 53</li>
+</ul>
+<h3 id="preparation-for-next-step">Preparation for Next Step</h3>
+<p>With 2 SSL certificates ready, we can create Custom Domain Names for API Gateway in both Regions in the next step.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/" title="DNS Delegation for api.turtleclouds.id.vn"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/" title="Create Custom domains for API Gateway (one per region)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759408387"></script>
+    <script src="/js/jquery.sticky.js?1759408387"></script>
+    <script src="/js/featherlight.min.js?1759408387"></script>
+    <script src="/js/highlight.pack.js?1759408387"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759408387"></script>
+    <script src="/js/learn.js?1759408387"></script>
+    <script src="/js/hugo-learn.js?1759408387"></script>
+
+    <link href="/mermaid/mermaid.css?1759408387" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759408387"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

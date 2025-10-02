@@ -2,124 +2,288 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/vi/1-create-new-aws-account/</loc>
+    <loc>//localhost:1313/vi/1-create-new-aws-account/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-create-new-aws-account/"
+                href="//localhost:1313/1-create-new-aws-account/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-create-new-aws-account/"
+                href="//localhost:1313/vi/1-create-new-aws-account/"
                 />
   </url><url>
-    <loc>/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/</loc>
+    <loc>//localhost:1313/vi/1-create-new-aws-account/1.1-find-account-id/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/"
+                href="//localhost:1313/1-create-new-aws-account/1.1-find-account-id/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/"
+                href="//localhost:1313/vi/1-create-new-aws-account/1.1-find-account-id/"
                 />
   </url><url>
-    <loc>/vi/</loc>
+    <loc>//localhost:1313/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/"
+                href="//localhost:1313/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/"
+                href="//localhost:1313/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/"
                 />
   </url><url>
-    <loc>/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/</loc>
+    <loc>//localhost:1313/vi/6-setup-dns-route53-failover/6.1-setup-dns-delegation/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-mfa-setup-for-aws-user-root/2-u2f-security-key/"
+                href="//localhost:1313/6-setup-dns-route53-failover/6.1-setup-dns-delegation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/"
+                href="//localhost:1313/vi/6-setup-dns-route53-failover/6.1-setup-dns-delegation/"
                 />
   </url><url>
-    <loc>/vi/2-mfa-setup-for-aws-user-root/</loc>
+    <loc>//localhost:1313/vi/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-mfa-setup-for-aws-user-root/"
+                href="//localhost:1313/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-mfa-setup-for-aws-user-root/"
+                href="//localhost:1313/vi/"
                 />
   </url><url>
-    <loc>/vi/3-create-admin-user-and-group/</loc>
+    <loc>//localhost:1313/vi/5-setup-api-gateway/5.1-create-api-primary-region/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-create-admin-user-and-group/"
+                href="//localhost:1313/5-setup-api-gateway/5.1-create-api-primary-region/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-create-admin-user-and-group/"
+                href="//localhost:1313/vi/5-setup-api-gateway/5.1-create-api-primary-region/"
                 />
   </url><url>
-    <loc>/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/</loc>
+    <loc>//localhost:1313/vi/1-create-new-aws-account/1.2-update-account/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/"
+                href="//localhost:1313/1-create-new-aws-account/1.2-update-account/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/"
+                href="//localhost:1313/vi/1-create-new-aws-account/1.2-update-account/"
                 />
   </url><url>
-    <loc>/vi/4-verify-new-account/</loc>
+    <loc>//localhost:1313/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/4-verify-new-account/"
+                href="//localhost:1313/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/4-verify-new-account/"
+                href="//localhost:1313/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/"
                 />
   </url><url>
-    <loc>/vi/categories/</loc>
+    <loc>//localhost:1313/vi/5-setup-api-gateway/5.2-create-api-secondary-region/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/categories/"
+                href="//localhost:1313/5-setup-api-gateway/5.2-create-api-secondary-region/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/categories/"
+                href="//localhost:1313/vi/5-setup-api-gateway/5.2-create-api-secondary-region/"
                 />
   </url><url>
-    <loc>/vi/tags/</loc>
+    <loc>//localhost:1313/vi/2-mfa-setup-for-aws-user-root/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/tags/"
+                href="//localhost:1313/2-mfa-setup-for-aws-user-root/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/tags/"
+                href="//localhost:1313/vi/2-mfa-setup-for-aws-user-root/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/1-create-new-aws-account/1.3-aws-account-alias/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-create-new-aws-account/1.3-aws-account-alias/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-create-new-aws-account/1.3-aws-account-alias/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/3-create-admin-user-and-group/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-create-admin-user-and-group/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-create-admin-user-and-group/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/6-setup-dns-route53-failover/6.4-route53-health-check-failover/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-setup-dns-route53-failover/6.4-route53-health-check-failover/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-setup-dns-route53-failover/6.4-route53-health-check-failover/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/4-verify-new-account/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-verify-new-account/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-verify-new-account/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/5-setup-api-gateway/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/5-setup-api-gateway/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/5-setup-api-gateway/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/6-setup-dns-route53-failover/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-setup-dns-route53-failover/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-setup-dns-route53-failover/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/7-create-frontend-website/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/7-create-frontend-website/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/7-create-frontend-website/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/8-test-failover-delete-primary-api/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/8-test-failover-delete-primary-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/8-test-failover-delete-primary-api/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/9-clean-up-resources/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/9-clean-up-resources/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/9-clean-up-resources/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/categories/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/tags/"
                 />
   </url>
 </urlset>

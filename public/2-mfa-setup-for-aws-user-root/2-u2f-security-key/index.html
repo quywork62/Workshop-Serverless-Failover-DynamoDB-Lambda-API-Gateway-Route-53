@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.148.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>U2F Security Key :: Create a new AWS account.</title>
+    <title>U2F Security Key :: Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
 
     
-    <link href="/css/nucleus.css?1704686315" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704686315" rel="stylesheet">
-    <link href="/css/hybrid.css?1704686315" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704686315" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704686315" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704686315" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704686315" rel="stylesheet">
-    <link href="/css/theme.css?1704686315" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704686315" rel="stylesheet">
+    <link href="/css/nucleus.css?1757999286" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1757999286" rel="stylesheet">
+    <link href="/css/hybrid.css?1757999286" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1757999286" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1757999286" rel="stylesheet">
+    <link href="/css/auto-complete.css?1757999286" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1757999286" rel="stylesheet">
+    <link href="/css/theme.css?1757999286" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1757999286" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704686315" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1757999286" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704686315"></script>
+    <script src="/js/jquery-3.3.1.min.js?1757999286"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704686315"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704686315"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1757999286"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1757999286"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704686315"></script>
+<script type="text/javascript" src="/js/search.js?1757999286"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/" title="Create new AWS account" class="dd-item 
+    <li data-nav-id="/1-create-new-aws-account/" title="Preparation Steps" class="dd-item 
         
         
         
         ">
       <a href="/1-create-new-aws-account/">
-           <b> 1. </b> Create new AWS account
+           <b> 1. </b> Preparation Steps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -188,34 +188,6 @@
 
             
           
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-create-new-aws-account/1.4-close-account/" title="Close a standalone AWS account" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-create-new-aws-account/1.4-close-account/">
-           <b> 1.4 </b> Close a standalone AWS account
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -232,13 +204,13 @@
  
   
     
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/" title="MFA for AWS Accounts" class="dd-item 
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/" title="Create DynamoDB Table in Primary Region" class="dd-item 
         parent
         
         
         ">
       <a href="/2-mfa-setup-for-aws-user-root/">
-           <b> 2. </b> MFA for AWS Accounts
+           <b> 2. </b> Create DynamoDB Table in Primary Region
           
             <i class="fas fa-check read-icon"></i>
           
@@ -292,7 +264,7 @@
   
     
     <li data-nav-id="/2-mfa-setup-for-aws-user-root/2-u2f-security-key/" title="U2F Security Key" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -319,13 +291,13 @@
  
   
     
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Hard MFA Device" class="dd-item 
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Optimize DynamoDB Global Tables" class="dd-item 
         
         
         
         ">
       <a href="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/">
-           <b> 2.3 </b> Hard MFA Device
+           <b> 2.3 </b> Optimize DynamoDB Global Tables
           
             <i class="fas fa-check read-icon"></i>
           
@@ -354,13 +326,13 @@
  
   
     
-    <li data-nav-id="/3-create-admin-user-and-group/" title="Create Admin Group and Admin User" class="dd-item 
+    <li data-nav-id="/3-create-admin-user-and-group/" title="Create Lambda Functions and API Gateway" class="dd-item 
         
         
         
         ">
       <a href="/3-create-admin-user-and-group/">
-           <b> 3. </b> Create Admin Group and Admin User
+           <b> 3. </b> Create Lambda Functions and API Gateway
           
             <i class="fas fa-check read-icon"></i>
           
@@ -380,13 +352,13 @@
  
   
     
-    <li data-nav-id="/4-verify-new-account/" title="Account Authentication Support" class="dd-item 
+    <li data-nav-id="/4-verify-new-account/" title="Configure Route 53 and Test Failover" class="dd-item 
         
         
         
         ">
       <a href="/4-verify-new-account/">
-           <b> 4. </b> Account Authentication Support
+           <b> 4. </b> Configure Route 53 and Test Failover
           
             <i class="fas fa-check read-icon"></i>
           
@@ -437,7 +409,7 @@
                   
                     
                     
-                      <option id="en" value="/2-mfa-setup-for-aws-user-root/2-u2f-security-key/" selected>English</option>
+                      <option id="en" value="//localhost:1313/2-mfa-setup-for-aws-user-root/2-u2f-security-key/" selected>English</option>
                     
                   
               
@@ -451,7 +423,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/">Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/">Tiếng Việt</option>
                     
                   
               
@@ -541,7 +513,7 @@
             
           
           
-            <a href='/'>Setting up an AWS account</a> > <a href='/2-mfa-setup-for-aws-user-root/'>MFA for AWS Accounts</a> > U2F Security Key
+            <a href='/'>Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53</a> > <a href='/2-mfa-setup-for-aws-user-root/'>Create DynamoDB Table in Primary Region</a> > U2F Security Key
           
         
           
@@ -588,7 +560,7 @@
 
 	<p><strong>Content</strong></p>
 <ul>
-<li><a href="#enable-u2f-security-key-via-console">Enable U2F security key via Console</a></li>
+<li><a href="/2-mfa-setup-for-aws-user-root/2-u2f-security-key/#enable-u2f-security-key-via-console">Enable U2F security key via Console</a></li>
 </ul>
 
 <div class="notices tip" ><p>If you do not have a hardware device, you can skip the steps below.</p>
@@ -768,22 +740,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -905,7 +861,7 @@
 			<a class="nav nav-prev" href="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Virtual MFA Device"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Hard MFA Device" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Optimize DynamoDB Global Tables" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -915,19 +871,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704686316"></script>
-    <script src="/js/jquery.sticky.js?1704686316"></script>
-    <script src="/js/featherlight.min.js?1704686316"></script>
-    <script src="/js/highlight.pack.js?1704686316"></script>
+    <script src="/js/clipboard.min.js?1757999286"></script>
+    <script src="/js/perfect-scrollbar.min.js?1757999286"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1757999286"></script>
+    <script src="/js/jquery.sticky.js?1757999286"></script>
+    <script src="/js/featherlight.min.js?1757999286"></script>
+    <script src="/js/highlight.pack.js?1757999286"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704686316"></script>
-    <script src="/js/learn.js?1704686316"></script>
-    <script src="/js/hugo-learn.js?1704686316"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1757999286"></script>
+    <script src="/js/learn.js?1757999286"></script>
+    <script src="/js/hugo-learn.js?1757999286"></script>
 
-    <link href="/mermaid/mermaid.css?1704686316" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704686316"></script>
+    <link href="/mermaid/mermaid.css?1757999286" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1757999286"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

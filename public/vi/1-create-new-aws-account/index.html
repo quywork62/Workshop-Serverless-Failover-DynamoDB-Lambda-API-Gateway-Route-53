@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.148.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo mới tài khoản AWS :: Tạo mới tài khoản AWS</title>
+    <title>Bước chuẩn bị :: Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
 
     
-    <link href="/css/nucleus.css?1704686316" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704686316" rel="stylesheet">
-    <link href="/css/hybrid.css?1704686316" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704686316" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704686316" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704686316" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704686316" rel="stylesheet">
-    <link href="/css/theme.css?1704686316" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704686316" rel="stylesheet">
+    <link href="/css/nucleus.css?1759408387" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759408387" rel="stylesheet">
+    <link href="/css/hybrid.css?1759408387" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759408387" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759408387" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759408387" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759408387" rel="stylesheet">
+    <link href="/css/theme.css?1759408387" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759408387" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704686316" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759408387" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704686316"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759408387"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704686316"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704686316"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759408387"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759408387"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704686316"></script>
+<script type="text/javascript" src="/js/search.js?1759408387"></script>
 
     
   </div>
@@ -82,39 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-create-new-aws-account/" title="Tạo mới tài khoản AWS" class="dd-item 
-        parent
+    <li data-nav-id="/vi/1-create-new-aws-account/" title="Bước chuẩn bị" class="dd-item 
+        
         active
         
         ">
       <a href="/vi/1-create-new-aws-account/">
-           <b> 1. </b> Tạo mới tài khoản AWS
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/" title="MFA cho Tài khoản AWS" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/">
-           <b> 2. </b> MFA cho Tài khoản AWS
+           <b> 1. </b> Bước chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
           
@@ -139,13 +113,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Thiết bị MFA ảo" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.1-find-account-id/" title="Đăng kí tên miền tại TENTEN.VN" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
-           <b> 2.1 </b> Thiết bị MFA ảo
+      <a href="/vi/1-create-new-aws-account/1.1-find-account-id/">
+           <b> 1.1 </b> Đăng kí tên miền tại TENTEN.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -167,13 +141,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/" title="Khóa bảo mật U2F" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.2-update-account/" title="Hosting trên DATAONLINE.VN" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/">
-           <b> 2.2 </b> Khóa bảo mật U2F
+      <a href="/vi/1-create-new-aws-account/1.2-update-account/">
+           <b> 1.2 </b> Hosting trên DATAONLINE.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +169,13 @@
  
   
     
-    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Thiết bị MFA cứng" class="dd-item 
+    <li data-nav-id="/vi/1-create-new-aws-account/1.3-aws-account-alias/" title="Sử dụng Cloudflare để quản lý tên miền" class="dd-item 
         
         
         
         ">
-      <a href="/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/">
-           <b> 2.3 </b> Thiết bị MFA cứng
+      <a href="/vi/1-create-new-aws-account/1.3-aws-account-alias/">
+           <b> 1.3 </b> Sử dụng Cloudflare để quản lý tên miền
           
             <i class="fas fa-check read-icon"></i>
           
@@ -230,13 +204,79 @@
  
   
     
-    <li data-nav-id="/vi/3-create-admin-user-and-group/" title="Tạo Admin Group và Admin User" class="dd-item 
+    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/" title="Tạo bảng DynamoDB ở Region chính" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-mfa-setup-for-aws-user-root/">
+           <b> 2. </b> Tạo bảng DynamoDB ở Region chính
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Kích hoạt Global Tables và thêm Region phụ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
+           <b> 2.1 </b> Kích hoạt Global Tables và thêm Region phụ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-admin-user-and-group/" title="Tạo IAM Role cho Lambda Functions" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-create-admin-user-and-group/">
-           <b> 3. </b> Tạo Admin Group và Admin User
+           <b> 3. </b> Tạo IAM Role cho Lambda Functions
           
             <i class="fas fa-check read-icon"></i>
           
@@ -256,13 +296,335 @@
  
   
     
-    <li data-nav-id="/vi/4-verify-new-account/" title="Hỗ trợ Xác thực Tài khoản" class="dd-item 
+    <li data-nav-id="/vi/4-verify-new-account/" title="Tạo Lambda Functions ở cả hai Region" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-verify-new-account/">
-           <b> 4. </b> Hỗ trợ Xác thực Tài khoản
+           <b> 4. </b> Tạo Lambda Functions ở cả hai Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/" title="Thiết lập API Gateway ở cả hai Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/">
+           <b> 5. </b> Thiết lập API Gateway ở cả hai Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/5.1-create-api-primary-region/" title="Tạo API Gateway ở Region chính" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/5.1-create-api-primary-region/">
+           <b> 5.1 </b> Tạo API Gateway ở Region chính
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-setup-api-gateway/5.2-create-api-secondary-region/" title="Nhân bản API Gateway sang Region phụ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-setup-api-gateway/5.2-create-api-secondary-region/">
+           <b> 5.2 </b> Nhân bản API Gateway sang Region phụ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/" title="Thiết lập DNS Route 53 và cấu hình Failover cho API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/">
+           <b> 6. </b> Thiết lập DNS Route 53 và cấu hình Failover cho API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.1-setup-dns-delegation/" title="Quyết định DNS cho api.turtleclouds.id.vn" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.1-setup-dns-delegation/">
+           <b> 6.1 </b> Quyết định DNS cho api.turtleclouds.id.vn
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/" title="Làm ACM DNS validation cho cả 2 region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">
+           <b> 6.2 </b> Làm ACM DNS validation cho cả 2 region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/" title="Tạo Custom domain cho API Gateway (mỗi region một cái)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/">
+           <b> 6.3 </b> Tạo Custom domain cho API Gateway (mỗi region một cái)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-setup-dns-route53-failover/6.4-route53-health-check-failover/" title="Route 53 Health check &#43; Failover record (trong zone api.turtleclouds.id.vn)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-setup-dns-route53-failover/6.4-route53-health-check-failover/">
+           <b> 6.4 </b> Route 53 Health check &#43; Failover record (trong zone api.turtleclouds.id.vn)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-create-frontend-website/" title="Create the Frontend Website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-create-frontend-website/">
+           <b> 7. </b> Create the Frontend Website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/8-test-failover-delete-primary-api/" title="Kiểm thử cơ chế chuyển đổi dự phòng bằng cách xóa API ở primary (Singapore)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/8-test-failover-delete-primary-api/">
+           <b> 8. </b> Kiểm thử cơ chế chuyển đổi dự phòng bằng cách xóa API ở primary (Singapore)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/9-clean-up-resources/" title="Xóa tài nguyên (Clean Up)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/9-clean-up-resources/">
+           <b> 9. </b> Xóa tài nguyên (Clean Up)
           
             <i class="fas fa-check read-icon"></i>
           
@@ -313,7 +675,7 @@
                   
                     
                     
-                      <option id="en" value="/1-create-new-aws-account/">English</option>
+                      <option id="en" value="//localhost:1313/1-create-new-aws-account/">English</option>
                     
                   
               
@@ -327,7 +689,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/1-create-new-aws-account/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/1-create-new-aws-account/" selected>Tiếng Việt</option>
                     
                   
               
@@ -365,7 +727,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>26-11-2023</font></i>
+        <i><font color=orange>1-10-2025</font></i>
     </left>
     <left>
         <br>
@@ -373,7 +735,8 @@
             <b> Team </b> <br>
            
             <i>
-                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a><br>
+                <a href="https://www.linkedin.com/in/quy-hoang-773a45303"  style="color:orange">Hoàng Quy</a>
         </i>
         </left>
 
@@ -413,7 +776,7 @@
             
           
           
-            <a href='/vi/'>Thiết lập Tài Khoản AWS</a> > Tạo mới tài khoản AWS
+            <a href='/vi/'>Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53</a> > Bước chuẩn bị
           
         
           
@@ -426,11 +789,14 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#hướng-dẫn-tạo-tài-khoản-aws">Hướng dẫn Tạo tài khoản AWS</a></li>
-    <li><a href="#thêm-phương-thức-thanh-toán">Thêm phương thức thanh toán</a></li>
-    <li><a href="#xác-thực-số-điện-thoại-của-bạn">Xác thực số điện thoại của bạn</a></li>
-    <li><a href="#chọn-support-plan">Chọn Support Plan</a></li>
-    <li><a href="#đợi-account-của-bạn-được-kích-hoạt">Đợi account của bạn được kích hoạt</a></li>
+    <li>
+      <ul>
+        <li><a href="#chuẩn-bị-cho-serverless-failover-architecture">Chuẩn bị cho Serverless Failover Architecture</a></li>
+        <li><a href="#yêu-cầu-trước-khi-bắt-đầu">Yêu cầu trước khi bắt đầu</a></li>
+        <li><a href="#các-region-sẽ-sử-dụng">Các Region sẽ sử dụng</a></li>
+        <li><a href="#kiến-trúc-tổng-quan">Kiến trúc tổng quan</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -448,7 +814,7 @@
           
             <h1>
               
-              Tạo mới tài khoản AWS
+              Bước chuẩn bị
             </h1>
           
 
@@ -456,80 +822,36 @@
 
 
 
-	<p><strong>Nội dung:</strong></p>
-<ul>
-<li><a href="#h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-t%E1%BA%A1o-t%C3%A0i-kho%E1%BA%A3n-aws">Hướng dẫn Tạo tài khoản AWS</a></li>
-<li><a href="#th%C3%AAm-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-thanh-to%C3%A1n">Thêm phương thức thanh toán</a></li>
-<li><a href="#x%C3%A1c-th%E1%BB%B1c-s%E1%BB%91-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-c%E1%BB%A7a-b%E1%BA%A1n">Xác thực số điện thoại của bạn</a></li>
-<li><a href="#ch%E1%BB%8Dn-support-plan">Chọn Support Plan</a></li>
-<li><a href="#%C4%91%E1%BB%A3i-account-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C6%B0%E1%BB%A3c-k%C3%ADch-ho%E1%BA%A1t">Đợi account của bạn được kích hoạt</a></li>
-</ul>
-<h2 id="hướng-dẫn-tạo-tài-khoản-aws">Hướng dẫn Tạo tài khoản AWS</h2>
+	<h3 id="chuẩn-bị-cho-serverless-failover-architecture">Chuẩn bị cho Serverless Failover Architecture</h3>
+<p>Trước khi bắt đầu xây dựng kiến trúc Serverless Failover, chúng ta cần chuẩn bị một số thành phần cơ bản:</p>
+<h3 id="yêu-cầu-trước-khi-bắt-đầu">Yêu cầu trước khi bắt đầu</h3>
 <ol>
-<li>Đi đến trang <a href="https://aws.amazon.com/">Amazon Web Service homepage</a>.</li>
-<li>Chọn <strong>Create an AWS Account</strong> ở góc trên bên phải.
+<li><strong>Tài khoản AWS</strong>: Đảm bảo bạn có tài khoản AWS với quyền Administrator</li>
+<li><strong>Tên miền</strong>: Chuẩn bị một tên miền để cấu hình Route 53 (tùy chọn)</li>
+<li><strong>Kiến thức cơ bản</strong>: Hiểu biết về các dịch vụ AWS cơ bản</li>
+</ol>
+<h3 id="các-region-sẽ-sử-dụng">Các Region sẽ sử dụng</h3>
+<p>Trong bài lab này, chúng ta sẽ sử dụng 2 Region:</p>
 <ul>
-<li><em><strong>Ghi Chú:</strong> Nếu bạn không thấy <strong>Create an AWS Account</strong>, chọn <strong>Sign In to the Console</strong> sau đó chọn <strong>Create a new AWS Account</strong>.</em></li>
+<li><strong>Primary Region</strong>: Singapore (ap-southeast-1)</li>
+<li><strong>Secondary Region</strong>: Tokyo (ap-northeast-1)</li>
 </ul>
-</li>
-</ol>
-<p><img src="/images/1/0001.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
-<ol start="3">
-<li>Nhập thông tin email và <strong>AWS account name</strong>.</li>
-</ol>
-<p><img src="/images/1/0002.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
-<ol start="4">
-<li>Hoàn thành thông tin.</li>
-</ol>
-<p><img src="/images/1/0003.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
-<ol start="5">
-<li>Xác nhận mã được gửi từ email.</li>
-</ol>
-<p><img src="/images/1/0004.png?featherlight=false&amp;width=90pc" alt="Create Account">
-<img src="/images/1/0005.png?featherlight=false&amp;width=90pc" alt="Create Account">
-<img src="/images/1/0006.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
-<ol start="6">
-<li>Sau khi xác thực email thành công, bạn hoàn thành thông tin tài khoản.</li>
-</ol>
-<p><img src="/images/1/0007.png?featherlight=false&amp;width=90pc" alt="Create Account">
-<img src="/images/1/0008.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
-<ol start="7">
-<li>Thực hiện hoàn thành hồ sơ đăng ký tài khoản.
-<ul>
-<li>Bạn có thể chọn tài khoản <strong>Personal</strong> hoặc <strong>Business</strong>.</li>
-</ul>
-</li>
-</ol>
-<p><img src="/images/1/0009.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
-<hr>
-<h2 id="thêm-phương-thức-thanh-toán">Thêm phương thức thanh toán</h2>
-<ul>
-<li>Nhập thông tin thẻ tín dụng của bạn và chọn <strong>Verify and Add</strong>.
-<ul>
-<li>*<strong>Ghi chú</strong>: Bạn có thể chọn 1 địa chỉ khác cho tài khoản của bạn bằng cách chọn <strong>Use a new address</strong> trước khi <strong>Verify and Add</strong>.</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/1/00010.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
-<hr>
-<h2 id="xác-thực-số-điện-thoại-của-bạn">Xác thực số điện thoại của bạn</h2>
+<h3 id="kiến-trúc-tổng-quan">Kiến trúc tổng quan</h3>
+<p><img src="/images/1/0001.png?v=2025&amp;featherlight=false&amp;width=60pc" alt="Serverless Failover Architecture">
+Chúng ta sẽ xây dựng một ứng dụng serverless có khả năng failover tự động với các thành phần:</p>
 <ol>
-<li>Nhập số điện thoại.</li>
-<li>Nhập mã security check sau đó chọn <strong>Call me now</strong>.</li>
-<li>AWS sẽ liên hệ và xác thực mở tài khoản.</li>
+<li><strong>DynamoDB Global Tables</strong>: Lưu trữ dữ liệu đồng bộ giữa các Region</li>
+<li><strong>Lambda Functions</strong>: Xử lý logic backend</li>
+<li><strong>API Gateway</strong>: Cung cấp REST API endpoints</li>
+<li><strong>Route 53</strong>: DNS failover và health checks</li>
+<li><strong>S3</strong>: Hosting website tĩnh</li>
 </ol>
-<p><img src="/images/1/00011.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
-<hr>
-<h2 id="chọn-support-plan">Chọn Support Plan</h2>
-<ul>
-<li>Trong trang <strong>Select a support plan</strong>, chọn 1 plan có hiệu lực, để so sánh giữa các plan, bạn hãy xem <a href="https://aws.amazon.com/premiumsupport/plans/">Compare AWS Support Plans</a>.</li>
-</ul>
-<hr>
-<h2 id="đợi-account-của-bạn-được-kích-hoạt">Đợi account của bạn được kích hoạt</h2>
-<ul>
-<li>Sau khi chọn <strong>Support plan</strong>, account thường được kích hoạt sau vài phút, nhưng quá trình có thể cần tốn đến 24 tiếng. Bạn vẫn có thể đăng nhập vào account AWS lúc này, Trang chủ AWS có thể sẽ hiển thị một nút “Complete Sign Up” trong thời gian này, cho dù bạn đã hoàn thành tất cả các bước ở phần đăng kí.</li>
-<li>Sau khi nhận được email xác nhận account của bạn đã được kích hoạt, bạn có thể truy cập vào tất cả dịch vụ của AWS.</li>
-</ul>
+<p><strong>Nội dung:</strong></p>
+<ol>
+<li><a href="/vi/1-create-new-aws-account/1.1-find-account-id/">Đăng kí tên miền tại TENTEN.VN</a></li>
+<li><a href="/vi/1-create-new-aws-account/1.2-update-account/">Hosting trên DATAONLINE.VN</a></li>
+<li><a href="/vi/1-create-new-aws-account/1.3-aws-account-alias/">Sử dụng Cloudflare để quản lý tên miền)</a></li>
+</ol>
 
 
 
@@ -576,25 +898,6 @@
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -604,6 +907,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -647,6 +953,220 @@
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -692,10 +1212,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/" title="Thiết lập Tài Khoản AWS"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/" title="Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-mfa-setup-for-aws-user-root/" title="MFA cho Tài khoản AWS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/1-create-new-aws-account/1.1-find-account-id/" title="Đăng kí tên miền tại TENTEN.VN" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -705,19 +1225,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704686316"></script>
-    <script src="/js/jquery.sticky.js?1704686316"></script>
-    <script src="/js/featherlight.min.js?1704686316"></script>
-    <script src="/js/highlight.pack.js?1704686316"></script>
+    <script src="/js/clipboard.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759408387"></script>
+    <script src="/js/jquery.sticky.js?1759408387"></script>
+    <script src="/js/featherlight.min.js?1759408387"></script>
+    <script src="/js/highlight.pack.js?1759408387"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704686316"></script>
-    <script src="/js/learn.js?1704686316"></script>
-    <script src="/js/hugo-learn.js?1704686316"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759408387"></script>
+    <script src="/js/learn.js?1759408387"></script>
+    <script src="/js/hugo-learn.js?1759408387"></script>
 
-    <link href="/mermaid/mermaid.css?1704686316" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704686316"></script>
+    <link href="/mermaid/mermaid.css?1759408387" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759408387"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -1,42 +1,48 @@
 ---
-title : "MFA cho Tài khoản AWS"
-date :  "`r Sys.Date()`" 
+title : "Tạo bảng DynamoDB ở Region chính"
+date : "2025-01-27" 
 weight : 2
 chapter : false
 pre : " <b> 2. </b> "
 ---
 
-#### Hướng dẫn Thiết lập Multi-Factor Authentication (MFA)
+### Giới thiệu DynamoDB
 
-Trong quy trình bảo mật, việc sử dụng Multi-Factor Authentication (MFA) rất quan trọng. Trong bước này, bạn sẽ sử dụng ba loại thiết bị MFA khác nhau để tăng cường tính bảo mật.
+Amazon DynamoDB là dịch vụ cơ sở dữ liệu NoSQL được quản lý hoàn toàn (fully managed NoSQL database), cung cấp khả năng lưu trữ dữ liệu dạng key-value và document với độ trễ chỉ vài mili-giây ở mọi quy mô. Ưu điểm lớn của DynamoDB là tự động mở rộng (auto scaling), không cần quản lý máy chủ, và tích hợp sẵn tính năng bảo mật, backup, caching.
 
-#### Thiết bị MFA ảo trên smartphone
+Trong bài lab này, DynamoDB đóng vai trò là nền tảng lưu trữ chính của ứng dụng, đảm bảo dữ liệu được nhân bản tự động giữa nhiều Region thông qua Global Tables, giúp ứng dụng duy trì tính sẵn sàng và nhất quán ngay cả khi một Region gặp sự cố.
 
-Một cách phổ biến để thực hiện MFA là sử dụng các ứng dụng MFA trên điện thoại thông minh. Có ba ứng dụng phổ biến mà bạn có thể sử dụng:
+ #### **Nội dung**
 
-1. Microsoft Authenticator
-2. Google Authenticator
-3. Okta Verify
+1. [Tạo bảng DynamoDB ở Region chính](#step-1-tạo-bảng-dynamodb-ở-region-chính)
+2. [Kích hoạt Global Tables và thêm Region phụ](1-virtual-mfa-device/)
 
-Để cài đặt MFA với các ứng dụng này, bạn cần thực hiện các bước sau:
 
-1. Tải và cài đặt ứng dụng từ cửa hàng ứng dụng chính thức của hãng phát triển.
-2. Theo hướng dẫn trong ứng dụng, thêm tài khoản bảo mật bằng cách quét mã QR hoặc nhập mã cung cấp.
+###  Bước 1. Tạo bảng DynamoDB ở Region chính
 
-#### Khóa bảo mật U2F cứng
+#### 1. Đăng nhập AWS Management Console
 
-Khóa bảo mật U2F (Universal 2nd Factor) cung cấp một lớp bảo mật bổ sung thông qua cổng USB. Để cài đặt khóa bảo mật U2F, bạn cần thực hiện các bước sau:
+#### 2. Vào dịch vụ [DynamoDB](https://ap-southeast-1.console.aws.amazon.com/dynamodbv2/home?region=ap-southeast-1#service)
 
-1. Mua khóa bảo mật U2F tương thích với hệ thống của bạn.
-2. Kết nối khóa vào cổng USB của máy tính.
-3. Theo hướng dẫn của hãng sản xuất, thực hiện quá trình đăng ký và cài đặt.
+![DynamoDB](/images/2/2.png?featherlight=false&width=90pc)
 
-#### Thiết bị MFA phần cứng khác
+#### 3. Tạo bảng mới trong Region chính (ví dụ: ap-southeast-1)
 
-Ngoài các tùy chọn trên, còn có các thiết bị MFA phần cứng khác như khóa bảo mật Gemalto. Để sử dụng các thiết bị này, bạn cần tuân thủ hướng dẫn cụ thể từ nhà sản xuất.
+Table name: ```HighAvailabilityTable```
 
-#### Liên kết nhanh đến các phần hướng dẫn chi tiết
+Partition key: ```ItemId``` (String)
 
-1. [Thiết lập với thiết bị MFA ảo](#1-virtual-mfa-device)
-2. [Thiết lập với Khóa Bảo mật U2F](#2-u2f-security-key)
-3. [Thiết lập với thiết bị MFA phần cứng khác](#3-other-hardware-mfa-device)
+![DynamoDB](/images/2/1.png?featherlight=false&width=90pc)
+![DynamoDB](/images/2/3.png?featherlight=false&width=90pc)
+
+#### 4. Ta sẽ chọn "Default Settings" ở bảng Table Settings
+
+![DynamoDB](/images/2/4.png?featherlight=false&width=90pc)
+
+#### 5. Cuối cùng chọn "Create table"
+
+![DynamoDB](/images/2/5.png?featherlight=false&width=90pc)
+
+#### Đợi khoảng 2 - 3 phút để khởi tạo tài nguyên. Kiểm tra Status chuyển sang "Active" là thành công
+
+![DynamoDB](/images/2/6.png?featherlight=false&width=90pc)

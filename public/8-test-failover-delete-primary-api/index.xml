@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test failover mechanism by deleting primary API (Singapore) on Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
+    <link>//localhost:1313/8-test-failover-delete-primary-api/</link>
+    <description>Recent content in Test failover mechanism by deleting primary API (Singapore) on Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="//localhost:1313/8-test-failover-delete-primary-api/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

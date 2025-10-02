@@ -1,61 +1,40 @@
 ---
-title : "Thiết bị MFA ảo"
-date :  "`r Sys.Date()`" 
+title : "Kích hoạt Global Tables và thêm Region phụ"
+date : "2025-01-27" 
 weight : 1
 chapter : false
 pre : " <b> 2.1 </b> "
 ---
 
-## Kích hoạt Multi-Factor Authentication (MFA) trên AWS
+#### Amazon DynamoDB Global Tables
 
-{{% notice note %}}
-Để kích hoạt MFA, bạn cần đăng nhập vào AWS sử dụng tài khoản root.
-{{% /notice %}}
+**Amazon DynamoDB Global Tables** là một tính năng cho phép nhân bản dữ liệu tự động đa Region. Khi bạn bật Global Tables, dữ liệu được ghi ở một Region sẽ được tự động sao chép sang các Region khác theo mô hình multi-active (cả hai Region đều có thể đọc/ghi).
 
-## Kích hoạt thiết bị MFA ảo thông qua Console
+Điều này giúp ứng dụng:
 
-Để thiết lập và kích hoạt thiết bị MFA ảo, bạn có thể tuân theo các bước sau:
+- **Tính sẵn sàng cao (High Availability)**: Nếu một Region gặp sự cố, ứng dụng vẫn có thể truy cập dữ liệu từ Region còn lại.
+- **Khả năng phục hồi sau thảm họa (Disaster Recovery – DR)**: Đảm bảo dữ liệu không bị gián đoạn và có thể khôi phục nhanh chóng.
+- **Hiệu suất toàn cầu**: Người dùng ở các khu vực khác nhau có thể truy cập dữ liệu từ Region gần nhất để giảm độ trễ.
 
-1. Đăng nhập vào [AWS Console](https://aws.amazon.com/console/).
-2. Ở góc trên bên phải, bạn sẽ thấy tên tài khoản của bạn. Nhấp vào tên và chọn **My Security Credentials**.
+Trong bài lab này, sau khi tạo bảng DynamoDB ở Region chính (ví dụ us-east-1), bạn sẽ bật Global Tables để tạo bản sao sang Region phụ (us-west-2). Khi hoàn tất, mọi thay đổi trên bảng ở một Region sẽ được đồng bộ gần như theo thời gian thực sang bảng ở Region còn lại.
 
-   ![MFA](/images/2/0001.png?featherlight=false&width=90pc)
+### Bước 2: Kích hoạt Global Tables và thêm Region phụ
 
-3. Mở rộng mục **Multi-factor authentication (MFA)** và chọn **Assign MFA**.
+#### 1. Sau khi hoàn thành bước đầu, tiếp theo ta sẽ click vào bảng **HighAvailabilityTable** mới tạo
 
-   ![MFA](/images/2/0002.png?featherlight=false&width=90pc)
+![DynamoDB](/images/2/7.png?featherlight=false&width=90pc)
 
-4. Trong giao diện **Select MFA device**, nhập tên cho thiết bị MFA của bạn:
+#### 2. Trong bảng vừa tạo, chuyển đến tab **Global Tables**
 
-   - Chọn **MFA device** là **Authenticator app**.
-   - Chọn **Next**.
+![DynamoDB](/images/2/8.png?featherlight=false&width=90pc)
 
-   ![MFA](/images/2/0003.png?featherlight=false&width=90pc)
+#### 3. Chọn Create replica → chọn Region dự phòng (ví dụ: Tokyo ap-northeast-1)
 
-5. Tiến hành cài đặt ứng dụng xác thực trên điện thoại của bạn. Danh sách [ứng dụng MFA tương thích](https://aws.amazon.com/iam/features/mfa/?audit=2019q1).
+![DynamoDB](/images/2/9.png?featherlight=false&width=90pc)
 
-   ![MFA](/images/2/0004.png?featherlight=false&width=90pc)
+#### 4. Sau khi tạo chúng ta sẽ đợi từ 3 - 5 phút để khởi tạo tài nguyên. Cuối cùng khi thấy "Replica" chuyển sang Status **Active** là thành công
 
-6. Bạn có thể tìm ứng dụng **Authenticator** trên [Chrome Web Store](https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai). Sau đó nhấp vào **Add to Chrome** để cài đặt.
+![DynamoDB](/images/2/10.png?featherlight=false&width=90pc)
 
-   ![MFA](/images/2/0005.png?featherlight=false&width=90pc)
 
-7. Sử dụng mã xác thực MFA để nhập vào xác nhận.
 
-   ![MFA](/images/2/0006.png?featherlight=false&width=90pc)
-
-8. Thực hiện quét mã QR.
-
-   ![MFA](/images/2/0007.png?featherlight=false&width=90pc)
-
-9. Sau khi quét mã QR, bạn cần nhập 2 mã xác thực từ ứng dụng MFA.
-
-   ![MFA](/images/2/0008.png?featherlight=false&width=90pc)
-
-10. Sau khi nhập mã xác thực, chọn **Add MFA** để hoàn thành quá trình thêm MFA.
-
-   ![MFA](/images/2/0009.png?featherlight=false&width=90pc)
-
-11. Quá trình thêm MFA đã hoàn tất.
-
-   ![MFA](/images/2/00010.png?featherlight=false&width=90pc)

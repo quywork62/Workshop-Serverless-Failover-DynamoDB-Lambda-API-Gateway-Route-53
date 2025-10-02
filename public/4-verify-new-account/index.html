@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.148.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Account Authentication Support :: Create a new AWS account.</title>
+    <title>Create Lambda Functions in Both Regions :: Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
 
     
-    <link href="/css/nucleus.css?1704686315" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704686315" rel="stylesheet">
-    <link href="/css/hybrid.css?1704686315" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704686315" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704686315" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704686315" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704686315" rel="stylesheet">
-    <link href="/css/theme.css?1704686315" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704686315" rel="stylesheet">
+    <link href="/css/nucleus.css?1759408387" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759408387" rel="stylesheet">
+    <link href="/css/hybrid.css?1759408387" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759408387" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759408387" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759408387" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759408387" rel="stylesheet">
+    <link href="/css/theme.css?1759408387" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759408387" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704686315" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759408387" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704686315"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759408387"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704686315"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704686315"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759408387"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759408387"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704686315"></script>
+<script type="text/javascript" src="/js/search.js?1759408387"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/" title="Create new AWS account" class="dd-item 
+    <li data-nav-id="/1-create-new-aws-account/" title="Preparation Steps" class="dd-item 
         
         
         
         ">
       <a href="/1-create-new-aws-account/">
-           <b> 1. </b> Create new AWS account
+           <b> 1. </b> Preparation Steps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/1.1-find-account-id/" title="View AWS account identifiers" class="dd-item 
+    <li data-nav-id="/1-create-new-aws-account/1.1-find-account-id/" title="Domain Registration at TENTEN.VN" class="dd-item 
         
         
         
         ">
       <a href="/1-create-new-aws-account/1.1-find-account-id/">
-           <b> 1.1 </b> View AWS account identifiers
+           <b> 1.1 </b> Domain Registration at TENTEN.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -141,13 +141,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/1.2-update-account/" title="Update the AWS account" class="dd-item 
+    <li data-nav-id="/1-create-new-aws-account/1.2-update-account/" title="Hosting on DATAONLINE.VN" class="dd-item 
         
         
         
         ">
       <a href="/1-create-new-aws-account/1.2-update-account/">
-           <b> 1.2 </b> Update the AWS account
+           <b> 1.2 </b> Hosting on DATAONLINE.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -169,41 +169,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/1.3-aws-account-alias/" title="Create or update your AWS account alias" class="dd-item 
+    <li data-nav-id="/1-create-new-aws-account/1.3-aws-account-alias/" title="Using Cloudflare for Domain Management" class="dd-item 
         
         
         
         ">
       <a href="/1-create-new-aws-account/1.3-aws-account-alias/">
-           <b> 1.3 </b> Create or update your AWS account alias
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-create-new-aws-account/1.4-close-account/" title="Close a standalone AWS account" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-create-new-aws-account/1.4-close-account/">
-           <b> 1.4 </b> Close a standalone AWS account
+           <b> 1.3 </b> Using Cloudflare for Domain Management
           
             <i class="fas fa-check read-icon"></i>
           
@@ -232,13 +204,13 @@
  
   
     
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/" title="MFA for AWS Accounts" class="dd-item 
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/" title="Create DynamoDB Table in Primary Region" class="dd-item 
         
         
         
         ">
       <a href="/2-mfa-setup-for-aws-user-root/">
-           <b> 2. </b> MFA for AWS Accounts
+           <b> 2. </b> Create DynamoDB Table in Primary Region
           
             <i class="fas fa-check read-icon"></i>
           
@@ -263,69 +235,13 @@
  
   
     
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Virtual MFA Device" class="dd-item 
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Enable Global Tables and Add Secondary Region" class="dd-item 
         
         
         
         ">
       <a href="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
-           <b> 2.1 </b> Virtual MFA Device
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/2-u2f-security-key/" title="U2F Security Key" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-mfa-setup-for-aws-user-root/2-u2f-security-key/">
-           <b> 2.2 </b> U2F Security Key
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Hard MFA Device" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/">
-           <b> 2.3 </b> Hard MFA Device
+           <b> 2.1 </b> Enable Global Tables and Add Secondary Region
           
             <i class="fas fa-check read-icon"></i>
           
@@ -354,13 +270,13 @@
  
   
     
-    <li data-nav-id="/3-create-admin-user-and-group/" title="Create Admin Group and Admin User" class="dd-item 
+    <li data-nav-id="/3-create-admin-user-and-group/" title="Create IAM Role for Lambda Functions" class="dd-item 
         
         
         
         ">
       <a href="/3-create-admin-user-and-group/">
-           <b> 3. </b> Create Admin Group and Admin User
+           <b> 3. </b> Create IAM Role for Lambda Functions
           
             <i class="fas fa-check read-icon"></i>
           
@@ -380,13 +296,335 @@
  
   
     
-    <li data-nav-id="/4-verify-new-account/" title="Account Authentication Support" class="dd-item 
-        parent
+    <li data-nav-id="/4-verify-new-account/" title="Create Lambda Functions in Both Regions" class="dd-item 
+        
         active
         
         ">
       <a href="/4-verify-new-account/">
-           <b> 4. </b> Account Authentication Support
+           <b> 4. </b> Create Lambda Functions in Both Regions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/" title="Set Up API Gateway (Both Regions)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/">
+           <b> 5. </b> Set Up API Gateway (Both Regions)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/5.1-create-api-primary-region/" title="Create API Gateway in Primary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/5.1-create-api-primary-region/">
+           <b> 5.1 </b> Create API Gateway in Primary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/5.2-create-api-secondary-region/" title="Replicate API Gateway to Secondary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/5.2-create-api-secondary-region/">
+           <b> 5.2 </b> Replicate API Gateway to Secondary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/" title="Set Up DNS Route 53 and Configure Failover for API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/">
+           <b> 6. </b> Set Up DNS Route 53 and Configure Failover for API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/" title="DNS Delegation for api.turtleclouds.id.vn" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/">
+           <b> 6.1 </b> DNS Delegation for api.turtleclouds.id.vn
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/" title="ACM DNS validation for both regions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">
+           <b> 6.2 </b> ACM DNS validation for both regions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/" title="Create Custom domains for API Gateway (one per region)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/">
+           <b> 6.3 </b> Create Custom domains for API Gateway (one per region)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.4-route53-health-check-failover/" title="Route 53 Health check &#43; Failover record (in zone api.turtleclouds.id.vn)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.4-route53-health-check-failover/">
+           <b> 6.4 </b> Route 53 Health check &#43; Failover record (in zone api.turtleclouds.id.vn)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-create-frontend-website/" title="Create the Frontend Website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-create-frontend-website/">
+           <b> 7. </b> Create the Frontend Website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-test-failover-delete-primary-api/" title="Test failover mechanism by deleting primary API (Singapore)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8-test-failover-delete-primary-api/">
+           <b> 8. </b> Test failover mechanism by deleting primary API (Singapore)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/9-clean-up-resources/" title="Clean Up Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9-clean-up-resources/">
+           <b> 9. </b> Clean Up Resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -437,7 +675,7 @@
                   
                     
                     
-                      <option id="en" value="/4-verify-new-account/" selected>English</option>
+                      <option id="en" value="//localhost:1313/4-verify-new-account/" selected>English</option>
                     
                   
               
@@ -451,7 +689,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/4-verify-new-account/">Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/4-verify-new-account/">Tiếng Việt</option>
                     
                   
               
@@ -489,7 +727,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>26-11-2023</font></i>
+        <i><font color=orange>1-10-2025</font></i>
     </left>
     <left>
         <br>
@@ -497,7 +735,8 @@
             <b> Team </b> <br>
            
             <i>
-                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a><br>
+                <a href="https://www.linkedin.com/in/quy-hoang-773a45303"  style="color:orange">Hoàng Quy</a>
         </i>
         </left>
 
@@ -537,7 +776,7 @@
             
           
           
-            <a href='/'>Setting up an AWS account</a> > Account Authentication Support
+            <a href='/'>Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53</a> > Create Lambda Functions in Both Regions
           
         
           
@@ -552,7 +791,8 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#introduction-to-amazon-lambda">Introduction to <strong>Amazon Lambda</strong></a></li>
+        <li><a href="#content">Content</a></li>
       </ul>
     </li>
   </ul>
@@ -572,7 +812,7 @@
           
             <h1>
               
-              Account Authentication Support
+              Create Lambda Functions in Both Regions
             </h1>
           
 
@@ -580,57 +820,327 @@
 
 
 
-	<p><strong>Content:</strong></p>
+	<h3 id="introduction-to-amazon-lambda">Introduction to <strong>Amazon Lambda</strong></h3>
+<p><strong>AWS Lambda</strong> is AWS&rsquo;s serverless compute service. With Lambda, you can run code without managing servers – just write code, upload it, and AWS automatically handles resource provisioning, scaling, and billing based on function invocations.</p>
+<p>Key characteristics:</p>
 <ul>
-<li><a href="#check-the-information">Check the information</a></li>
-<li><a href="#create-a-support-case-with-aws-support">Create a support case with AWS Support</a></li>
+<li>No infrastructure management → AWS operates the entire backend.</li>
+<li>Automatic scaling → Lambda can handle from a few requests to thousands of requests per second.</li>
+<li>Tight integration with other AWS services (DynamoDB, S3, API Gateway, etc.).</li>
 </ul>
-<p>During the AWS account creation process, at the contact phone number verification step, sometimes there will be a situation where no SMS or calls from AWS will be received. In that case, follow these steps to complete the account information verification:</p>
-<h4 id="check-the-information">Check the information</h4>
-<p>First, double-check your account information and make sure it&rsquo;s entered correctly:</p>
-<ul>
-<li>You have entered the phone number information and selected the correct international area code to receive the call.</li>
-<li>If you use a mobile phone, check your phone to make sure you are still within range to receive calls.</li>
-<li>Payment method information has been entered correctly.
-
-<div class="notices info" ><p>Make sure that the phone number you provide in your AWS account is reachable.</p>
-</div>
-</li>
-</ul>
-<h4 id="create-a-support-case-with-aws-support">Create a support case with AWS Support</h4>
-<p>After checking that the information is correct but still has not received the verification call, AWS Support will assist you to activate your account manually.</p>
+<p><strong>Lambda Function Role in This Step</strong></p>
+<p><strong>In this lab</strong>, Lambda serves as the application logic layer between <strong>API Gateway</strong> and <strong>DynamoDB</strong>:</p>
+<p><strong>ReadFunction</strong>: reads all data from the DynamoDB table and returns results in JSON format.</p>
+<p><strong>WriteFunction</strong>: receives data from requests (via API Gateway), then writes (put item) to DynamoDB.</p>
+<p>In this step, we will create Lambda Functions to handle backend logic for the application in both Regions (Primary and Secondary).</p>
+<h3 id="content">Content</h3>
 <ol>
-<li>Go to the <a href="https://aws.amazon.com/support/">AWS Support console</a>, select <strong>Create case</strong>.</li>
+<li><a href="/4-verify-new-account/#1-open-aws-lambda-console">Open AWS Lambda Console</a></li>
+<li><a href="/4-verify-new-account/#2-create-lambda-function-for-reading-data-readfunction">Create Lambda Function for Reading Data (ReadFunction)</a></li>
+<li><a href="/4-verify-new-account/#3-create-lambda-function-for-writing-data-writefunction">Create Lambda Function for Writing Data (WriteFunction)</a></li>
+<li><a href="/4-verify-new-account/#4-deploy-functions-in-secondary-region">Deploy Functions in Secondary Region</a></li>
 </ol>
-<p><img src="/images/4/0001.png?featherlight=false&amp;width=90pc" alt="AWS Support"></p>
-<ol start="2">
-<li>Select <strong>Account and billing support</strong> and enter the support information:
+<h4 id="1-open-aws-lambda-console">1. Open AWS Lambda Console</h4>
 <ul>
-<li>Type: select <strong>Account</strong>.</li>
-<li>Category: select <strong>Activation</strong>.</li>
-<li>Subject: briefly write down your situation (eg <strong>Did not receive an SMS message or call for verification</strong>)</li>
-<li>Description: Provide details of the situation encountered and information about the time you need support to activate the account.</li>
-<li>Attachments: Attach an image describing the authentication step you are facing.</li>
+<li>Sign in to <strong>AWS Management Console</strong>.</li>
+<li>Find and select the <strong>Lambda</strong> service.</li>
+</ul>
+<p><img src="/images/4/1.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="2-create-lambda-function-for-reading-data-readfunction">2. Create Lambda Function for Reading Data (ReadFunction)</h4>
+<ul>
+<li>Choose <strong>Create function</strong>.</li>
+<li>Enter configuration:
+<ul>
+<li><strong>Function name</strong>: <code>ReadFunction</code></li>
+<li><strong>Runtime</strong>: <strong>Python 3.9</strong></li>
+<li><strong>Execution role</strong>: Choose <strong>Use an existing role</strong> and select <strong>LambdaDynamoDBRole</strong> (created in previous step).</li>
 </ul>
 </li>
-</ol>
-<p><img src="/images/4/0002.png?featherlight=false&amp;width=90pc" alt="AWS Support"></p>
-<p><img src="/images/4/0003.png?featherlight=false&amp;width=90pc" alt="AWS Support"></p>
-<p><img src="/images/4/0004.png?featherlight=false&amp;width=90pc" alt="AWS Support"></p>
-<ol start="3">
-<li>Under <strong>Contact options</strong>, select <strong>Chat</strong> under <strong>Contact methods</strong>.</li>
-</ol>
-<p><img src="/images/4/0005.png?featherlight=false&amp;width=90pc" alt="AWS Support"></p>
-<ol start="4">
-<li>Select <strong>Submit</strong>.</li>
-</ol>
-<p><img src="/images/4/0006.png?featherlight=false&amp;width=90pc" alt="AWS Support">
-5. The AWS Support team will contact and assist in activating your account.</p>
-<p><img src="/images/4/0007.png?featherlight=false&amp;width=90pc" alt="AWS Support">
-
-<div class="notices note" ><p>You can create a support request with AWS Support even if your account is not activated.</p>
-</div>
-</p>
+</ul>
+<p><img src="/images/4/2.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/4/3.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<p><strong>Execution role</strong>: Choose <strong>Use an existing role</strong> and select <strong>LambdaDynamoDBRole</strong> (created in previous step).</p>
+<p><img src="/images/4/4.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<p>Copy the following code and paste it into <strong>lambda_function.py</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> boto3.dynamodb.conditions <span style="color:#f92672">import</span> Key
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> decimal <span style="color:#f92672">import</span> Decimal
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Initialize DynamoDB resource</span>
+</span></span><span style="display:flex;"><span>dynamodb <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>resource(<span style="color:#e6db74">&#39;dynamodb&#39;</span>)
+</span></span><span style="display:flex;"><span>table <span style="color:#f92672">=</span> dynamodb<span style="color:#f92672">.</span>Table(<span style="color:#e6db74">&#39;HighAvailabilityTable&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Helper function to convert Decimal to regular types for JSON serialization</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decimal_default</span>(obj):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> isinstance(obj, Decimal):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> float(obj)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">TypeError</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Handle preflight OPTIONS request for CORS</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> event<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;httpMethod&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;OPTIONS&#39;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Max-Age&#39;</span>: <span style="color:#e6db74">&#39;86400&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;body&#39;</span>: <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Scan the table to get all items</span>
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> table<span style="color:#f92672">.</span>scan()
+</span></span><span style="display:flex;"><span>        items <span style="color:#f92672">=</span> response[<span style="color:#e6db74">&#39;Items&#39;</span>]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Handle pagination if there are more items</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#e6db74">&#39;LastEvaluatedKey&#39;</span> <span style="color:#f92672">in</span> response:
+</span></span><span style="display:flex;"><span>            response <span style="color:#f92672">=</span> table<span style="color:#f92672">.</span>scan(ExclusiveStartKey<span style="color:#f92672">=</span>response[<span style="color:#e6db74">&#39;LastEvaluatedKey&#39;</span>])
+</span></span><span style="display:flex;"><span>            items<span style="color:#f92672">.</span>extend(response[<span style="color:#e6db74">&#39;Items&#39;</span>])
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Sort items by ItemId for consistent ordering</span>
+</span></span><span style="display:flex;"><span>        items<span style="color:#f92672">.</span>sort(key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> x: str(x<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;ItemId&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)))
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Content-Type&#39;</span>: <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Cache-Control&#39;</span>: <span style="color:#e6db74">&#39;no-cache, no-store, must-revalidate&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Pragma&#39;</span>: <span style="color:#e6db74">&#39;no-cache&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Expires&#39;</span>: <span style="color:#e6db74">&#39;0&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps(items, default<span style="color:#f92672">=</span>decimal_default, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Error reading data: </span><span style="color:#e6db74">{</span>str(e)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e"># Log error for debugging</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">500</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Content-Type&#39;</span>: <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps({
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;error&#39;</span>: <span style="color:#e6db74">&#39;Internal server error&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;message&#39;</span>: <span style="color:#e6db74">&#39;Unable to read data from database&#39;</span>
+</span></span><span style="display:flex;"><span>            }, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p><img src="/images/4/5.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<ul>
+<li>Click <strong>Deploy</strong> to save the code.</li>
+</ul>
+<p><img src="/images/4/6.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="you-have-successfully-created-the-lambda-function-for-reading-data-readfunction">You have successfully created the Lambda function for reading data (ReadFunction)!</h4>
+<p><img src="/images/4/7.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="3-create-lambda-function-for-writing-data-writefunction">3. Create Lambda Function for Writing Data (WriteFunction)</h4>
+<ul>
+<li>Choose <strong>Create function</strong> again.</li>
+<li>Enter configuration:
+<ul>
+<li><strong>Function name</strong>: <code>WriteFunction</code></li>
+<li><strong>Runtime</strong>: <strong>Python 3.9</strong></li>
+<li><strong>Execution role</strong>: Choose <strong>LambdaDynamoDBRole</strong> again</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/4/8.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<p><strong>Execution role</strong>: Choose <strong>Use an existing role</strong> and select <strong>LambdaDynamoDBRole</strong></p>
+<p><img src="/images/4/9.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<p>Copy the following code and paste it into <strong>lambda_function.py</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> uuid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Initialize DynamoDB resource</span>
+</span></span><span style="display:flex;"><span>dynamodb <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>resource(<span style="color:#e6db74">&#39;dynamodb&#39;</span>)
+</span></span><span style="display:flex;"><span>table <span style="color:#f92672">=</span> dynamodb<span style="color:#f92672">.</span>Table(<span style="color:#e6db74">&#39;HighAvailabilityTable&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Handle preflight OPTIONS request for CORS</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> event<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;httpMethod&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;OPTIONS&#39;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Max-Age&#39;</span>: <span style="color:#e6db74">&#39;86400&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;body&#39;</span>: <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Parse request body</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> event<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;body&#39;</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;Request body is required&#39;</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        body <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(event[<span style="color:#e6db74">&#39;body&#39;</span>])
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Check if this is a DELETE action</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> body<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;Action&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;DELETE&#39;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Handle DELETE operation</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;ItemId&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> body:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;ItemId is required for delete operation&#39;</span>)
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            item_id <span style="color:#f92672">=</span> str(body[<span style="color:#e6db74">&#39;ItemId&#39;</span>])<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> item_id:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;ItemId cannot be empty&#39;</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Check if item exists before deleting</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>                response <span style="color:#f92672">=</span> table<span style="color:#f92672">.</span>get_item(Key<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;ItemId&#39;</span>: item_id})
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;Item&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> response:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Item with ID &#34;</span><span style="color:#e6db74">{</span>item_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; not found&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;not found&#39;</span> <span style="color:#f92672">in</span> str(e):
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">raise</span> e
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Error checking item existence: </span><span style="color:#e6db74">{</span>str(e)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Delete from DynamoDB</span>
+</span></span><span style="display:flex;"><span>            table<span style="color:#f92672">.</span>delete_item(Key<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;ItemId&#39;</span>: item_id})
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Successfully deleted item: </span><span style="color:#e6db74">{</span>item_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e"># Log for debugging</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Content-Type&#39;</span>: <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps({
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;message&#39;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Successfully deleted item &#34;</span><span style="color:#e6db74">{</span>item_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;!&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;itemId&#39;</span>: item_id,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;action&#39;</span>: <span style="color:#e6db74">&#39;DELETE&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;timestamp&#39;</span>: datetime<span style="color:#f92672">.</span>utcnow()<span style="color:#f92672">.</span>isoformat() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;Z&#39;</span>
+</span></span><span style="display:flex;"><span>                }, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Handle CREATE/UPDATE operation</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Validate required fields</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;ItemId&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> body <span style="color:#f92672">or</span> <span style="color:#e6db74">&#39;Data&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> body:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;ItemId and Data are required fields&#39;</span>)
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            item_id <span style="color:#f92672">=</span> str(body[<span style="color:#e6db74">&#39;ItemId&#39;</span>])<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>            data <span style="color:#f92672">=</span> str(body[<span style="color:#e6db74">&#39;Data&#39;</span>])<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Validate input data</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> item_id <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> data:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;ItemId and Data cannot be empty&#39;</span>)
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(item_id) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;ItemId cannot exceed 100 characters&#39;</span>)
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(data) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1000</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;Data cannot exceed 1000 characters&#39;</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Add timestamp and unique identifier for better tracking</span>
+</span></span><span style="display:flex;"><span>            timestamp <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>utcnow()<span style="color:#f92672">.</span>isoformat() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;Z&#39;</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Prepare item for DynamoDB</span>
+</span></span><span style="display:flex;"><span>            item <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;ItemId&#39;</span>: item_id,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Data&#39;</span>: data,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;CreatedAt&#39;</span>: timestamp,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;UpdatedAt&#39;</span>: timestamp
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Save to DynamoDB</span>
+</span></span><span style="display:flex;"><span>            table<span style="color:#f92672">.</span>put_item(Item<span style="color:#f92672">=</span>item)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Successfully saved item: </span><span style="color:#e6db74">{</span>item_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e"># Log for debugging</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Content-Type&#39;</span>: <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps({
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;message&#39;</span>: <span style="color:#e6db74">&#39;Data has been saved successfully!&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;itemId&#39;</span>: item_id,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;timestamp&#39;</span>: timestamp
+</span></span><span style="display:flex;"><span>                }, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> json<span style="color:#f92672">.</span>JSONDecodeError:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Error: Invalid JSON in request body&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">400</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Content-Type&#39;</span>: <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps({
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;error&#39;</span>: <span style="color:#e6db74">&#39;Invalid JSON format&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;message&#39;</span>: <span style="color:#e6db74">&#39;Request body must be valid JSON&#39;</span>
+</span></span><span style="display:flex;"><span>            }, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span> <span style="color:#66d9ef">as</span> ve:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Validation error: </span><span style="color:#e6db74">{</span>str(ve)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">400</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Content-Type&#39;</span>: <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps({
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;error&#39;</span>: <span style="color:#e6db74">&#39;Validation error&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;message&#39;</span>: str(ve)
+</span></span><span style="display:flex;"><span>            }, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Unexpected error: </span><span style="color:#e6db74">{</span>str(e)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e"># Log error for debugging</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">500</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;headers&#39;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Content-Type&#39;</span>: <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>: <span style="color:#e6db74">&#39;GET, POST, OPTIONS&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>: <span style="color:#e6db74">&#39;Content-Type, Authorization&#39;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps({
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;error&#39;</span>: <span style="color:#e6db74">&#39;Internal server error&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;message&#39;</span>: <span style="color:#e6db74">&#39;Unable to save data. Please try again later.&#39;</span>
+</span></span><span style="display:flex;"><span>            }, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p><img src="/images/4/10.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<ul>
+<li>Click <strong>Deploy</strong> to save the code.</li>
+</ul>
+<p><img src="/images/4/11.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<p>You have successfully created 2 Lambda functions named <strong>ReadFunction</strong> and <strong>WriteFunction</strong> in the <strong>Asia Pacific (Singapore)</strong> region with Python 3.9 runtime.</p>
+<p><img src="/images/4/12.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<h4 id="4-deploy-functions-in-secondary-region">4. Deploy Functions in Secondary Region</h4>
+<ul>
+<li>Deploy functions in Secondary Region</li>
+<li>Switch to the backup region (e.g., <code>ap-northeast-1</code>).</li>
+<li>Repeat steps 2 and 3 to create the same 2 functions (<strong>ReadFunction</strong> and <strong>WriteFunction</strong>) in this region.</li>
+</ul>
+<p><img src="/images/4/13.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<p>You have successfully created 2 <strong>Lambda functions</strong> named <strong>ReadFunction</strong> and <strong>WriteFunction</strong> in the <strong>Asia Pacific (Tokyo)</strong> region with Python 3.9 runtime.</p>
+<p><img src="/images/4/14.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
 
 
 
@@ -732,6 +1242,110 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -814,6 +1428,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -838,6 +1468,21 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -859,10 +1504,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/3-create-admin-user-and-group/" title="Create Admin Group and Admin User"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/3-create-admin-user-and-group/" title="Create IAM Role for Lambda Functions"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/1-create-new-aws-account/" title="Create new AWS account" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/5-setup-api-gateway/" title="Set Up API Gateway (Both Regions)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -872,19 +1517,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704686316"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704686316"></script>
-    <script src="/js/jquery.sticky.js?1704686316"></script>
-    <script src="/js/featherlight.min.js?1704686316"></script>
-    <script src="/js/highlight.pack.js?1704686316"></script>
+    <script src="/js/clipboard.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759408387"></script>
+    <script src="/js/jquery.sticky.js?1759408387"></script>
+    <script src="/js/featherlight.min.js?1759408387"></script>
+    <script src="/js/highlight.pack.js?1759408387"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704686316"></script>
-    <script src="/js/learn.js?1704686316"></script>
-    <script src="/js/hugo-learn.js?1704686316"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759408387"></script>
+    <script src="/js/learn.js?1759408387"></script>
+    <script src="/js/hugo-learn.js?1759408387"></script>
 
-    <link href="/mermaid/mermaid.css?1704686316" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704686316"></script>
+    <link href="/mermaid/mermaid.css?1759408387" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759408387"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

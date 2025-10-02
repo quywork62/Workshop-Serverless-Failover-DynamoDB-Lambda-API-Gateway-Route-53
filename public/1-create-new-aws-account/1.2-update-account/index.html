@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.148.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Update the AWS account :: Create a new AWS account.</title>
+    <title>Hosting on DATAONLINE.VN :: Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
 
     
-    <link href="/css/nucleus.css?1704686315" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704686315" rel="stylesheet">
-    <link href="/css/hybrid.css?1704686315" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704686315" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704686315" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704686315" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1704686315" rel="stylesheet">
-    <link href="/css/theme.css?1704686315" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704686315" rel="stylesheet">
+    <link href="/css/nucleus.css?1759408387" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759408387" rel="stylesheet">
+    <link href="/css/hybrid.css?1759408387" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759408387" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759408387" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759408387" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759408387" rel="stylesheet">
+    <link href="/css/theme.css?1759408387" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759408387" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1704686315" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759408387" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1704686315"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759408387"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1704686315"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1704686315"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759408387"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759408387"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1704686315"></script>
+<script type="text/javascript" src="/js/search.js?1759408387"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/" title="Create new AWS account" class="dd-item 
+    <li data-nav-id="/1-create-new-aws-account/" title="Preparation Steps" class="dd-item 
         parent
         
         
         ">
       <a href="/1-create-new-aws-account/">
-           <b> 1. </b> Create new AWS account
+           <b> 1. </b> Preparation Steps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/1.1-find-account-id/" title="View AWS account identifiers" class="dd-item 
+    <li data-nav-id="/1-create-new-aws-account/1.1-find-account-id/" title="Domain Registration at TENTEN.VN" class="dd-item 
         
         
         
         ">
       <a href="/1-create-new-aws-account/1.1-find-account-id/">
-           <b> 1.1 </b> View AWS account identifiers
+           <b> 1.1 </b> Domain Registration at TENTEN.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -141,13 +141,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/1.2-update-account/" title="Update the AWS account" class="dd-item 
-        parent
+    <li data-nav-id="/1-create-new-aws-account/1.2-update-account/" title="Hosting on DATAONLINE.VN" class="dd-item 
+        
         active
         
         ">
       <a href="/1-create-new-aws-account/1.2-update-account/">
-           <b> 1.2 </b> Update the AWS account
+           <b> 1.2 </b> Hosting on DATAONLINE.VN
           
             <i class="fas fa-check read-icon"></i>
           
@@ -169,41 +169,13 @@
  
   
     
-    <li data-nav-id="/1-create-new-aws-account/1.3-aws-account-alias/" title="Create or update your AWS account alias" class="dd-item 
+    <li data-nav-id="/1-create-new-aws-account/1.3-aws-account-alias/" title="Using Cloudflare for Domain Management" class="dd-item 
         
         
         
         ">
       <a href="/1-create-new-aws-account/1.3-aws-account-alias/">
-           <b> 1.3 </b> Create or update your AWS account alias
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-create-new-aws-account/1.4-close-account/" title="Close a standalone AWS account" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-create-new-aws-account/1.4-close-account/">
-           <b> 1.4 </b> Close a standalone AWS account
+           <b> 1.3 </b> Using Cloudflare for Domain Management
           
             <i class="fas fa-check read-icon"></i>
           
@@ -232,13 +204,13 @@
  
   
     
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/" title="MFA for AWS Accounts" class="dd-item 
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/" title="Create DynamoDB Table in Primary Region" class="dd-item 
         
         
         
         ">
       <a href="/2-mfa-setup-for-aws-user-root/">
-           <b> 2. </b> MFA for AWS Accounts
+           <b> 2. </b> Create DynamoDB Table in Primary Region
           
             <i class="fas fa-check read-icon"></i>
           
@@ -263,69 +235,13 @@
  
   
     
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Virtual MFA Device" class="dd-item 
+    <li data-nav-id="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/" title="Enable Global Tables and Add Secondary Region" class="dd-item 
         
         
         
         ">
       <a href="/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/">
-           <b> 2.1 </b> Virtual MFA Device
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/2-u2f-security-key/" title="U2F Security Key" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-mfa-setup-for-aws-user-root/2-u2f-security-key/">
-           <b> 2.2 </b> U2F Security Key
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/" title="Hard MFA Device" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/">
-           <b> 2.3 </b> Hard MFA Device
+           <b> 2.1 </b> Enable Global Tables and Add Secondary Region
           
             <i class="fas fa-check read-icon"></i>
           
@@ -354,13 +270,13 @@
  
   
     
-    <li data-nav-id="/3-create-admin-user-and-group/" title="Create Admin Group and Admin User" class="dd-item 
+    <li data-nav-id="/3-create-admin-user-and-group/" title="Create IAM Role for Lambda Functions" class="dd-item 
         
         
         
         ">
       <a href="/3-create-admin-user-and-group/">
-           <b> 3. </b> Create Admin Group and Admin User
+           <b> 3. </b> Create IAM Role for Lambda Functions
           
             <i class="fas fa-check read-icon"></i>
           
@@ -380,13 +296,335 @@
  
   
     
-    <li data-nav-id="/4-verify-new-account/" title="Account Authentication Support" class="dd-item 
+    <li data-nav-id="/4-verify-new-account/" title="Create Lambda Functions in Both Regions" class="dd-item 
         
         
         
         ">
       <a href="/4-verify-new-account/">
-           <b> 4. </b> Account Authentication Support
+           <b> 4. </b> Create Lambda Functions in Both Regions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/" title="Set Up API Gateway (Both Regions)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/">
+           <b> 5. </b> Set Up API Gateway (Both Regions)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/5.1-create-api-primary-region/" title="Create API Gateway in Primary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/5.1-create-api-primary-region/">
+           <b> 5.1 </b> Create API Gateway in Primary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-setup-api-gateway/5.2-create-api-secondary-region/" title="Replicate API Gateway to Secondary Region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-setup-api-gateway/5.2-create-api-secondary-region/">
+           <b> 5.2 </b> Replicate API Gateway to Secondary Region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/" title="Set Up DNS Route 53 and Configure Failover for API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/">
+           <b> 6. </b> Set Up DNS Route 53 and Configure Failover for API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/" title="DNS Delegation for api.turtleclouds.id.vn" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.1-setup-dns-delegation/">
+           <b> 6.1 </b> DNS Delegation for api.turtleclouds.id.vn
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/" title="ACM DNS validation for both regions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.2-acm-ssl-certificates/">
+           <b> 6.2 </b> ACM DNS validation for both regions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/" title="Create Custom domains for API Gateway (one per region)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.3-api-gateway-custom-domains/">
+           <b> 6.3 </b> Create Custom domains for API Gateway (one per region)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-setup-dns-route53-failover/6.4-route53-health-check-failover/" title="Route 53 Health check &#43; Failover record (in zone api.turtleclouds.id.vn)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-setup-dns-route53-failover/6.4-route53-health-check-failover/">
+           <b> 6.4 </b> Route 53 Health check &#43; Failover record (in zone api.turtleclouds.id.vn)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-create-frontend-website/" title="Create the Frontend Website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-create-frontend-website/">
+           <b> 7. </b> Create the Frontend Website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-test-failover-delete-primary-api/" title="Test failover mechanism by deleting primary API (Singapore)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8-test-failover-delete-primary-api/">
+           <b> 8. </b> Test failover mechanism by deleting primary API (Singapore)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/9-clean-up-resources/" title="Clean Up Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9-clean-up-resources/">
+           <b> 9. </b> Clean Up Resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -437,10 +675,22 @@
                   
                     
                     
-                      <option id="en" value="/1-create-new-aws-account/1.2-update-account/" selected>English</option>
+                      <option id="en" value="//localhost:1313/1-create-new-aws-account/1.2-update-account/" selected>English</option>
                     
                   
               
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/1-create-new-aws-account/1.2-update-account/">Tiếng Việt</option>
+                    
                   
               
           
@@ -477,7 +727,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>26-11-2023</font></i>
+        <i><font color=orange>1-10-2025</font></i>
     </left>
     <left>
         <br>
@@ -485,7 +735,8 @@
             <b> Team </b> <br>
            
             <i>
-                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a><br>
+                <a href="https://www.linkedin.com/in/quy-hoang-773a45303"  style="color:orange">Hoàng Quy</a>
         </i>
         </left>
 
@@ -529,7 +780,7 @@
             
           
           
-            <a href='/'>Setting up an AWS account</a> > <a href='/1-create-new-aws-account/'>Create new AWS account</a> > Update the AWS account
+            <a href='/'>Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53</a> > <a href='/1-create-new-aws-account/'>Preparation Steps</a> > Hosting on DATAONLINE.VN
           
         
           
@@ -546,7 +797,7 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#content">Content</a></li>
       </ul>
     </li>
   </ul>
@@ -566,7 +817,7 @@
           
             <h1>
               
-              Update the AWS account
+              Hosting on DATAONLINE.VN
             </h1>
           
 
@@ -574,56 +825,28 @@
 
 
 
-	<h4 id="update-the-aws-account-name-email-address-or-password-for-the-root-user">Update the AWS account name, email address, or password for the root user</h4>
-<h4 id="editing-aws-account-information">Editing AWS Account Information</h4>
-<p>To make changes to your AWS account&rsquo;s name, root user&rsquo;s password, or root user&rsquo;s email address, follow the steps below. Your email address and password serve as credentials for signing in as the AWS account root user.</p>
-<blockquote>
-<p><strong>Note:</strong> Changes made to an AWS account may take up to four hours to propagate across all services.</p>
-</blockquote>
-<h4 id="editing-account-name-root-user-password-or-email-address">Editing Account Name, Root User Password, or Email Address</h4>
-<p><strong>Minimum Permissions:</strong>
-To proceed with the following steps, you need to have at least the following IAM permissions:</p>
-<ul>
-<li>You must log in as the AWS account root user. No additional IAM permissions are required. These steps cannot be performed by an IAM user or role.</li>
-</ul>
+	<p>Next, you need to prepare a hosting service on <strong>DataOnline</strong> to store and operate your website. When you register for a suitable hosting package, the provider will send you the server IP address along with cPanel or Plesk admin login information.</p>
+<h3 id="content">Content</h3>
 <ol>
-<li>
-<p>Sign in to the AWS Management Console using your AWS account&rsquo;s email address and password.</p>
-</li>
-<li>
-<p>In the upper right corner of the console, click on your account name or account number, then select &ldquo;Account.&rdquo;</p>
-</li>
-<li>
-<p>On the Account page, locate &ldquo;Account settings&rdquo; and click &ldquo;Edit.&rdquo; You will be prompted to re-authenticate for security reasons.</p>
-<blockquote>
-<p><strong>Note:</strong> If the &ldquo;Edit&rdquo; option is not visible, it indicates that you are not logged in as the root user of your AWS account. Account settings cannot be modified while signed in as an IAM user or role.</p>
-</blockquote>
-</li>
-<li>
-<p>On the &ldquo;Update Account Settings&rdquo; page, choose &ldquo;Edit&rdquo; next to the field you wish to update.</p>
-<ul>
-<li>
-<p>For <strong>Name</strong>: On the &ldquo;Update Your Account Name&rdquo; page, enter the new account name in the &ldquo;New account name&rdquo; field, then click &ldquo;Save changes.&rdquo;</p>
-<blockquote>
-<p><strong>Note:</strong> If you encounter issues modifying the AWS account name, check if there&rsquo;s a Service Control Policy (SCP) within AWS Organizations that restricts access to &ldquo;aws-portal&rdquo; or denies the &ldquo;iam:UpdateAccountName&rdquo; action.</p>
-</blockquote>
-</li>
-<li>
-<p>For <strong>Email</strong>: On the &ldquo;Update Your Email Address&rdquo; page, provide the required information for &ldquo;New email address,&rdquo; &ldquo;Confirm new email address,&rdquo; and confirm your current password. Afterward, click &ldquo;Save changes.&rdquo; A verification code will be sent to your new email address from &ldquo;<a href="mailto:no-reply@verify.signin.aws">no-reply@verify.signin.aws</a>.&rdquo; On the &ldquo;Verify Your New Email Address&rdquo; page, enter the verification code you received via email, then click &ldquo;Save changes.&rdquo;</p>
-<blockquote>
-<p><strong>Note:</strong> The verification code may take up to 5 minutes to arrive. If you don&rsquo;t find the email in your inbox, remember to check your spam and junk folders.</p>
-</blockquote>
-</li>
-<li>
-<p>For <strong>Password</strong>: On the &ldquo;Update Your Password&rdquo; page, fill in the fields for &ldquo;Current password,&rdquo; &ldquo;New password,&rdquo; and &ldquo;Confirm new password.&rdquo; Then, click &ldquo;Save changes.&rdquo; For additional guidance and best practices regarding root user password management, refer to <a href="link-to-documentation">Change the Password for the AWS Account Root User</a>.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Once you have completed all the desired changes, select &ldquo;Done.&rdquo;</p>
-</li>
+<li><a href="/1-create-new-aws-account/1.2-update-account/#1-go-to-dataonlinevn-homepage-or-watch-the-tutorial-video-via-this-link">Access DataOnline homepage</a></li>
+<li><a href="/1-create-new-aws-account/1.2-update-account/#2-after-registering-the-hosting-package-we-will-create-the-records">Register hosting package</a></li>
+<li><a href="/1-create-new-aws-account/1.2-update-account/#3-click-next-to-login-to-control-panel">Login to Control Panel</a></li>
+<li><a href="/1-create-new-aws-account/1.2-update-account/#4-next-we-click-on-dns-management">DNS Management</a></li>
+<li><a href="/1-create-new-aws-account/1.2-update-account/#5-finally-we-create-the-2-records">Create DNS Records</a></li>
 </ol>
-<p>That&rsquo;s it! You&rsquo;ve successfully updated your AWS account information.</p>
+<h4 id="1-go-to-dataonlinevn-homepage-or-watch-the-tutorial-video-via-this-link">1. Go to <a href="https://dataonline.vn/">dataonline.vn</a> homepage or watch the tutorial video via this link</h4>
+<h4 id="free-hosting-quality-like-paid-hosting-free-host-without-ads-at-dataonline"><a href="https://www.youtube.com/watch?v=oWHUKbBw8Zw">Free hosting, quality like paid hosting, free host without ads at Dataonline</a></h4>
+<h4 id="2-after-registering-the-hosting-package-we-will-create-the-records">2. After registering the hosting package, we will create the records</h4>
+<p><img src="/images/1.2/1.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
+<h4 id="3-click-next-to-login-to-control-panel">3. Click next to login to Control Panel</h4>
+<p><img src="/images/1.2/2.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
+<h4 id="click-once-more-to-login-to-control-panel">Click once more to login to Control Panel</h4>
+<p><img src="/images/1.2/3.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
+<h4 id="4-next-we-click-on-dns-management">4. Next we click on DNS Management</h4>
+<p><img src="/images/1.2/4.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
+<h4 id="5-finally-we-create-the-2-records">5. Finally we create the 2 records</h4>
+<p>First, create an A record for the root domain (symbol @), pointing to the server IP address provided by DataOnline. Then, continue to create another A record for the www prefix, also pointing to the same hosting IP. These two records will ensure that when users enter <strong>turtleclouds.id.vn</strong> or <strong><a href="https://www.turtleclouds.id.vn">www.turtleclouds.id.vn</a></strong> in their browser, the system will correctly direct them to the website hosted on DataOnline.</p>
+<p><img src="/images/1.2/5.png?featherlight=false&amp;width=90pc" alt="Create Account"></p>
 
 
 
@@ -730,6 +953,106 @@ To proceed with the following steps, you need to have at least the following IAM
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -811,6 +1134,38 @@ To proceed with the following steps, you need to have at least the following IAM
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -856,10 +1211,10 @@ To proceed with the following steps, you need to have at least the following IAM
 	 
 	 
 		
-			<a class="nav nav-prev" href="/1-create-new-aws-account/1.1-find-account-id/" title="View AWS account identifiers"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/1-create-new-aws-account/1.1-find-account-id/" title="Domain Registration at TENTEN.VN"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/1-create-new-aws-account/1.3-aws-account-alias/" title="Create or update your AWS account alias" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/1-create-new-aws-account/1.3-aws-account-alias/" title="Using Cloudflare for Domain Management" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -869,19 +1224,19 @@ To proceed with the following steps, you need to have at least the following IAM
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704686315"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704686315"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704686315"></script>
-    <script src="/js/jquery.sticky.js?1704686315"></script>
-    <script src="/js/featherlight.min.js?1704686315"></script>
-    <script src="/js/highlight.pack.js?1704686315"></script>
+    <script src="/js/clipboard.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759408387"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759408387"></script>
+    <script src="/js/jquery.sticky.js?1759408387"></script>
+    <script src="/js/featherlight.min.js?1759408387"></script>
+    <script src="/js/highlight.pack.js?1759408387"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1704686315"></script>
-    <script src="/js/learn.js?1704686315"></script>
-    <script src="/js/hugo-learn.js?1704686315"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759408387"></script>
+    <script src="/js/learn.js?1759408387"></script>
+    <script src="/js/hugo-learn.js?1759408387"></script>
 
-    <link href="/mermaid/mermaid.css?1704686315" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704686315"></script>
+    <link href="/mermaid/mermaid.css?1759408387" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759408387"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

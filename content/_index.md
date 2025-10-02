@@ -1,46 +1,85 @@
 ---
-title : "Setting up an AWS account"
-date :  "`r Sys.Date()`" 
+title : "Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53"
+date : "2025-01-27" 
 weight : 1 
 chapter : false
 ---
 
-# Creating your first AWS account
+# Serverless Failover: DynamoDB, Lambda, API Gateway & Route 53
 
-#### Overview
-In this first lab, you will be creating your new **AWS** account and use Multi-factor Authentication (**MFA**) to improve your account security. Next, you will create an **Administrator Group** and **Admin User** to manage access to resources in your account instead of using the root user. \
-Finally, we will step through account authentication with **AWS Support** in the event you experience authentication problems.
+## Overview
 
-#### AWS Account
-**An AWS account** is the basic container for all the AWS resources you can create as an AWS customer. By default, each AWS account will have a _root user_. The _root user_ has full access within your AWS account, and root user permissions cannot be limited. When you first create your AWS account, you will be assessing it as the _root user_.
+In production environments, one of the biggest risks is downtime when an AWS Region experiences an outage. For applications that require **High Availability (HA)** and **Disaster Recovery (DR)** capabilities, implementing multi-Region infrastructure is a critical strategy.
 
-![Create Account](/images/1/0001.png?featherlight=false&width=90pc)
+In this lab, you will build a multi-Region serverless application with the ability to:
 
-{{% notice note%}}
-As a best practice, do not use the AWS account _root user_ for any task where it's not required. Instead, create a new IAM user for each person that requires administrator access. Thereafter, the users in the administrators user group should set up the user groups, users, and so on, for the AWS account. All future interaction should be through the AWS account's users and their own keys instead of the root user. However, to perform some account and service management tasks, you must log in using the root user credentials.
-{{% /notice%}}
+- **Fault-Tolerant**: The application continues to operate normally when a component fails.
+- **Disaster Recovery (DR)**: If the Primary Region goes down, the system automatically switches to the Secondary Region without service interruption for end users.
 
-#### Multi-Factor Authentication (MFA)
-**MFA** adds extra security because it requires users to provide unique authentication from an AWS supported MFA mechanism in addition to their regular sign-in credentials when they access AWS websites or services.
+The main goal is to combine multiple AWS serverless services to form a comprehensive, secure, and automatic failover architecture.
 
-#### IAM User Group 
-An **IAM user group** is a collection of IAM users. User groups let you specify permissions for multiple users, which can make it easier to manage the permissions for those users. Any user in that user group automatically has the permissions that are assigned to the user group. 
+## Architecture Overview
 
-#### IAM User
-An **IAM user** is an entity that you create in AWS to represent the person or application that uses it to interact with AWS. A user in AWS consists of a name and credentials. \
-Please note that an IAM user with administrator permissions is not the same thing as the AWS account root user.
+![Serverless Failover Architecture](/images/1/0001.png?v=2025&featherlight=false&width=60pc)
 
+## Key Architecture Components
 
-#### AWS Support
-AWS Basic Support offers all AWS customers access to our Resource Center, Service Health Dashboard, Product FAQs, Discussion Forums, and Support for Health Checks – at no additional charge. Customers who desire a deeper level of support can subscribe to AWS Support at the Developer, Business, or Enterprise level.
+### 1. Amazon DynamoDB Global Tables
 
-Customers who choose AWS Support gain one-on-one, fast-response support from AWS engineers. The service helps customers use AWS's products and features. With pay-by-the-month pricing and unlimited support cases, customers are freed from long-term commitments. Customers with operational issues or technical questions can contact a team of support engineers and receive predictable response times and personalized support.
+**Role**: Primary data storage system for the application following a multi-region, multi-active model.
 
+**How it works**: All data written in one Region is automatically synchronized to other Regions within seconds (e.g., Singapore ↔ Tokyo).
 
-#### Main Content
+**DR Benefits**: When the Primary Region fails, the Secondary Region still has the latest data to serve users, avoiding data loss (zero data loss) and maintaining continuity.
 
-1. [Creating a new AWS Account](1-create-new-aws-account/)
-2. [Setting up MFA for the AWS Account root user](2-MFA-Setup-For-AWS-User-(root))
-3. [Creating an Administrator Accounts and Groups](3-create-admin-user-and-group/)
-4. [Getting support for Account Authentication](4-verify-new-account/)
-<!-- need to remove parenthesis for path in Hugo 0.88.1 for Windows-->
+### 2. AWS Lambda (Python Functions)
+
+**Role**: Provides serverless backend processing layer without infrastructure management.
+
+**How it works**: Lambda functions are deployed in parallel across both Regions, responsible for reading and writing data from DynamoDB. When users call the API, Lambda executes logic and returns results immediately.
+
+**DR Benefits**: Since Lambda is serverless, AWS automatically ensures availability across both Regions. When Route 53 redirects requests, Lambda in the remaining Region continues processing without manual configuration changes.
+
+### 3. Amazon API Gateway
+
+**Role**: Acts as RESTful API gateway, connecting clients and Lambda.
+
+**How it works**: API Gateway is deployed in both Primary and Secondary Regions, providing unified endpoints (stage /prod). It also supports logging and throttling for request control.
+
+**DR Benefits**: Users don't need to know which Region the API is running in. When failover occurs, Route 53 automatically switches DNS to the Secondary Region's API Gateway, providing seamless experience.
+
+### 4. Amazon Route 53
+
+**Role**: Manages DNS and performs failover based on health checks.
+
+**How it works**: You configure DNS records for your domain (e.g., api.example.com) pointing to API Gateway in the Primary Region, and failover records pointing to the Secondary. Route 53 continuously monitors the primary endpoint and redirects to the remaining Region if it detects failures.
+
+**DR Benefits**: Redirection is completely automatic, ensuring zero downtime and minimizing service interruption risks for users.
+
+### 5. AWS Certificate Manager (ACM)
+
+**Role**: Issues and manages SSL/TLS certificates for custom domains.
+
+**How it works**: ACM issues free certificates, which are then attached to API Gateway Custom Domain to enable HTTPS.
+
+**DR Benefits**: Ensures all client requests to the API are always secured via HTTPS, complying with security standards and building user trust.
+
+### 6. Amazon S3 (Frontend Website Hosting)
+
+**Role**: Stores and serves static websites (HTML, CSS, JS).
+
+**How it works**: Frontend website is hosted on an S3 bucket, can be combined with CloudFront for acceleration. This website calls APIs through the domain configured with Route 53.
+
+**DR Benefits**: Since the frontend is served from a static and stable source, when backend failover occurs, the website continues to function normally. Users continue using without changing any URLs.
+
+## Main Content
+
+1. [Preparation Steps](1-create-new-aws-account/)
+2. [Create DynamoDB Table in Primary Region](2-MFA-Setup-For-AWS-User-(root)/)
+3. [Create IAM Role for Lambda Functions](3-create-admin-user-and-group/)
+4. [Create Lambda Functions in Both Regions](4-verify-new-account/)
+5. [Set Up API Gateway (Both Regions)](5-setup-api-gateway/)
+6. [Set Up DNS Route 53 and Configure Failover for API Gateway](6-setup-dns-route53-failover/)
+7. [Create the Frontend Website](7-create-frontend-website/)
+8. [Test the failover mechanism by deleting the API in the primary (Singapore)](8-test-failover-delete-primary-api/)
+9. [Clean Up Resources](9-clean-up-resources/)

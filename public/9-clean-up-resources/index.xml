@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clean Up Resources on Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</title>
+    <link>//localhost:1313/9-clean-up-resources/</link>
+    <description>Recent content in Clean Up Resources on Serverless Failover: DynamoDB, Lambda, API Gateway &amp; Route 53</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="//localhost:1313/9-clean-up-resources/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
